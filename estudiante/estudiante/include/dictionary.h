@@ -120,7 +120,7 @@ class Dictionary {
                 bool operator ==(const iterator &i);
                 bool operator !=(const iterator &i);
 
-                friend class Diccionary;
+                friend class Dictionary;
         };
 
         /**
@@ -132,11 +132,11 @@ class Dictionary {
             public:
                 const_iterator ();
                 string operator *();
-                conts_iterator & operator ++();
-                bool operator ==(const conts_iterator &i);
-                bool operator !=(const conts_iterator &i);
+                const_iterator & operator ++();
+                bool operator ==(const const_iterator &i);
+                bool operator !=(const const_iterator &i);
 
-                friend class Diccionary;
+                friend class Dictionary;
         };
 
         /**
