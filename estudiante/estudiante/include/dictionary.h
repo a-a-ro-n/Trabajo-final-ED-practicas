@@ -50,7 +50,7 @@ class Dictionary {
         */
         bool empty() const 
         { 
-            return words.size()== 0; 
+            return words.size() == 0; 
         }
 
         /**
