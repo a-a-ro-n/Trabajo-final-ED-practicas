@@ -128,7 +128,7 @@ class Dictionary {
         */
         class const_iterator{
             private:
-                set<string>::const_iterator it; it;
+                set<string>::const_iterator it;
             public:
                 const_iterator ();
                 string operator *();
