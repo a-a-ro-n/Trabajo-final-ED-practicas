@@ -1,4 +1,4 @@
-Letra Cantidad Puntos
+#Letra Cantidad Puntos
 a	12	1
 b	2	3
 c	5	3
