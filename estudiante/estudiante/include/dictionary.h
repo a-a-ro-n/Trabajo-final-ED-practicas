@@ -48,10 +48,7 @@ class Dictionary {
         * @brief Comprueba si el diccionario está vacio.
         * @return true si el diccionario está vacío, false en caso contrario
         */
-        bool empty() const 
-        { 
-            return words.size() == 0; 
-        }
+        bool empty() const;
 
         /**
         * @brief Indica si una palabra esta en el diccionario o no.
