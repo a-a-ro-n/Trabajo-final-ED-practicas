@@ -26,10 +26,23 @@ struct LetterInfo{
 
 
 class LettersSet{
-private:
-  map<char, LetterInfo> charSet;
-   // A completar
-  
+    private:
+        map<char, LetterInfo> charSet;  // Letra
+        string fichero;                 // Nombre del fichero a leer
+
+    public:
+        /*
+         * @bief Constructor por defecto
+         */
+        LetterSet();
+
+        /*
+         * @bief Consultor de la letra
+         *
+         * @return Devuelve la letra del conjunto
+         */
+        const char getLetter() const;
+        void setLetter(map<char,LetterInfo>);
 };
 
 #endif
