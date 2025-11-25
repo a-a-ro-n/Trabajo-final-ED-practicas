@@ -2,6 +2,8 @@
 #define __LETTER_SET_H__
 
 #include <iostream>
+#include <string>
+#include <ifstream> // para la apertura del archivo y extraccion de letras
 #include <map>
 
 using namespace std;
@@ -27,22 +29,26 @@ struct LetterInfo{
 
 class LettersSet{
     private:
-        map<char, LetterInfo> charSet;  // Letra
+        LetterInfo datosLetra;          // datos de la estructura que formaran la letra
+        map<char, LetterInfo> charSet;  // mapeado de las letras
         string fichero;                 // Nombre del fichero a leer
 
     public:
         /*
          * @bief Constructor por defecto
+         * 
+         * @param se pasara por referencia el nombre del archivo a abrir
          */
-        LetterSet();
+        LetterSet(const string & archivo); // abriremos el archivo para la extraccion de las letras
 
         /*
-         * @bief Consultor de la letra
+         * @bief getter de la letra
          *
-         * @return Devuelve la letra del conjunto
+         * @param le pasamos el char letra para obtener su informacion
+         * @return Devuelve la informacion de la letra en el conjunto
          */
-        const char getLetter() const;
-        void setLetter(map<char,LetterInfo>);
+        const LetterInfo getLetter(char letra) const;
+        // void setLetter(map<char,LetterInfo>); // inecesaria implementacion
 };
 
 #endif
