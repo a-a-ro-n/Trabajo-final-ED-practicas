@@ -29,7 +29,6 @@ struct LetterInfo{
 
 class LettersSet{
     private:
-        LetterInfo datosLetra;          // datos de la estructura que formaran la letra
         map<char, LetterInfo> charSet;  // mapeado de las letras
         string fichero;                 // Nombre del fichero a leer
 
