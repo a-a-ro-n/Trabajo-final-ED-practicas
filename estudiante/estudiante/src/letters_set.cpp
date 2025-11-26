@@ -22,10 +22,18 @@ LetterSet::LetterSet(const string & nombre){ // abriremos el archivo para la ext
                 archivo >> repeticiones; // las veces que se repite
                 archivo >> puntuacion; // la puntuacion de la letra
                 
-                datosLetra = {repeticiones,puntuacion}; // agregamos en la estructura los datos correspondientes
+                LetterInfo datosLetra = {repeticiones,puntuacion}; // agregamos en la estructura los datos correspondientes
                 charSet[letra] = datosLetra; // agregamos la letra al map y le mapeamos sus datos
             }
         }
+        else{
+            cerr << "Archivo de formato invalido...\n\tSaliendo del programa";
+            exit(-1); // salimos del programa si no es el archivo correspondiente
+        }
+    }
+    else{
+        cerr << "Archivo <" << archivo << "> no se ha podido abrir correctamente..";
+        exit(-1); // salimos del constructor si no existe o no se pude abrir el archivo
     }
 }
 
@@ -37,6 +45,7 @@ LetterSet::LetterSet(const string & nombre){ // abriremos el archivo para la ext
  */
 const LetterInfo LetterSet::getLetter(char letter) const{
     auto it = charSet.find(letter); // primero buscamos si la letra esta en el conjunto
+
     if(it != charSet.end()); 
         return it->second; // si existe la letra, devolveos la estructura de datos de la letra
     else
