@@ -10,17 +10,21 @@
 
 using namespace std;
 
+void ModoPalabraMasLarga();
+void ModoPalabraMayorPuntuacion();
+
 int main(int argc, char *argv[])
 {
     if(argc != 6)
         return 1; // si no tenemos todos los parametros de entrada salimos del programa
     
-    const int CANTIDAD_LETRAS = 8;
-    char letras[CANTIDAD_LETRAS];       // contenedor de letras para formar la palabra
-    string solucion_usuario = "";       // palabra digitada por el usuario
-    int puntuacion_palabra = 0;         // puntuacion de la palabra digitada por el usuario
-    set<string> soluciones;             // contenedor de resultados
-    string mejor_solucion = "";         // almaceno la mejor solucion
+    LettersSet fichero(argv[4].toString()); // obtenemos las letras del archivo pasado
+    const int CANTIDAD_LETRAS = argv[5];    // obtenemos la cantidad de laetras a tener
+    LettersBag letras(CANTIDAD_LETRAS);     // contenedor de letras para formar la palabra
+    string solucion_usuario = "";           // palabra digitada por el usuario
+    int puntuacion_palabra = 0;             // puntuacion de la palabra digitada por el usuario
+    set<string> soluciones;                 // contenedor de resultados
+    string mejor_solucion = "";             // almaceno la mejor solucion
 
     bool seguir_jugando = true;
     while ( seguir_jugando )
@@ -59,4 +63,15 @@ int main(int argc, char *argv[])
         seguir_jugando = (result == 's') ? true : false;
     }
     
+}
+
+
+void ModoPalabraMasLarga()
+{
+
+}
+
+void ModoPalabraMayorPuntuacion()
+{
+
 }
