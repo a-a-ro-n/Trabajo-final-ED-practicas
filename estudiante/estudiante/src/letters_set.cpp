@@ -51,4 +51,4 @@ const LetterInfo LetterSet::getLetter(char letter) const{
     else
         return NULL; // si no existe la letra, devolvemos NULL
 }
-// void LetterSet::setLetter(map<char,LetterInfo>);
+// void LetterSet::setLetter(map<char,LetterInfo>); // añadimos la letra a la conjunto   (no le veo mucho sentido que podamos añadir letras)
