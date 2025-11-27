@@ -13,10 +13,10 @@ using namespace std;
 class LettersBag {
     private:
         vector<char> bag;       // vector de letras
-        // int cantidad_letras; // recuento de las letras totales de la bolsa (no es necesario ya que se pasa como parametro
+        // int cantidad_letras; // recuento de las letras totales de la bolsa (no es necesario ya que existe .size())
     
     public:
-        LettersBag(const int = 8, const LettersSet &);  // pasamos el numero de letras, y el conjunto dnde estan las letras
+        LettersBag(const LettersSet &);                 // pasamos el numero de letras, y el conjunto dnde estan las letras
         const char getLetter() const;                   // conseguimos la letra
         // void setLetter(const char);                  // añadimos la letra a la bolsa   (no le veo mucho sentido que podamos añadir letras)
         const string toString();                        // mostramos por pantalla todas las letras de la bolsa
