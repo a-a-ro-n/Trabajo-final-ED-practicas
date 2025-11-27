@@ -1,12 +1,7 @@
 #include "letters_bag.h"
 
-LettersBag(const int CANTIDAD_LETRAS, const LettersSet conjunto){  // pasamos el numero de letras, y el conjunto dnde estan las letras
-    srand(time(NULL));      // para la obtencion de las letras aleatorias
-    for(int i = 0; i < CANTIDAD_LETRAS; i++)
-    {
-        int indice = rand() % conjunto.size() + 1; // obtenemos el indice de una letra aleatoria, hay que pasarlo a la letra correspondinte
-        
-    }
+LettersBag(const LettersSet conjunto){  // pasamos el numero de letras, y el conjunto dnde estan las letras
+    
 }
 
 const char getLetter() const;                   // conseguimos la letra

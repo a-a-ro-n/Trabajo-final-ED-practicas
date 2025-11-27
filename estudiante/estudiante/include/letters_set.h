@@ -30,7 +30,6 @@ struct LetterInfo{
 class LettersSet{
     private:
         map<char, LetterInfo> charSet;  // mapeado de las letras
-        string fichero;                 // Nombre del fichero a leer
 
     public:
         /*
@@ -38,7 +37,7 @@ class LettersSet{
          * 
          * @param se pasara por referencia el nombre del archivo a abrir
          */
-        LetterSet(const string & archivo); // abriremos el archivo para la extraccion de las letras
+        LetterSet(const string &); // abriremos el archivo para la extraccion de las letras
 
         /*
          * @bief getter de la letra
@@ -46,8 +45,16 @@ class LettersSet{
          * @param le pasamos el char letra para obtener su informacion
          * @return Devuelve la informacion de la letra en el conjunto
          */
-        const LetterInfo getLetter(char letra) const;
+        const LetterInfo getLetterInfo(char) const;
         // void setLetter(map<char,LetterInfo>); // inecesaria implementacion
+        const bool empty() const;
+        const unsigned size() const;
+        
+    class iterator{
+        
+
+        friend LetterSet;
+    }
 };
 
 #endif
