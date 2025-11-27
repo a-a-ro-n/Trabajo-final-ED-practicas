@@ -57,3 +57,34 @@ const bool LetterSet::empty() const {
 const unsigned LetterSet::size() const {
     return charSet.size();
 }
+
+LetterSet::iterator::iterator() {}
+
+LetterSet::iterator::iterator(map<char, LetterInfo>::iterator iter){
+    it(iter);
+}
+
+LetterSet::iterator::pair<const char, LetterInfo>& operator*() const{
+    return *it;
+}
+
+iterator& LetterSet::iterator::operator++(){
+    ++it;
+    return *this;
+}
+
+bool LetterSet::iterator::operator!=(const iterator& other) const {
+    return it != other.it;
+}
+
+bool LetterSet::iterator::operator==(const iterator& other) const {
+    return it == other.it;
+}
+
+LetterSet::iterator begin() {
+    return iterator(charSet.begin());
+}
+
+LetterSet::iterator end() {
+    return iterator(charSet.end());
+}
