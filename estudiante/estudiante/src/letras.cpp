@@ -35,43 +35,7 @@ int main(int argc, char *argv[])
         return 1
     }
 
-    bool seguir_jugando = true;
-    while ( seguir_jugando )
-    {
-        cout << "Las letras son: ";
-        string cadena = "";
-        for( int i = 0; i < CANTIDAD_LETRAS; i++ )
-            cadena += "\t" + letras[i];
-        cout << cadena << endl;                     // sacamos por pantalla las letras
-
-        cout << "Dime tu solucion: " ;
-        cin >> solucion_usuario;                    // Recogemos la solucion apriori del usuario
-        cout << solucion_usuario << endl;           // Imprimimos la solucion
-        cout << solucion_usuario << "\tPuntuación: "
-               << puntuacion_palabra << endl;       // Mostramos la puntuacion de la palabra
-
-        cout << "\nMis soluciones son: " << endl; 
-        for( solucion : soluciones )
-            cout << solucion << "\tPuntuacion: " + puntuacion_palabra;
-
-        cout << "Mejor Solucion: " << mejor_solucion << endl;
-        
-        char result = '\0';
-        do
-        {
-            cout << "¿Quieres seguir jugando [S/N]?";
-            char aux;
-            cin >> aux;
-            if (aux == 'S' || aux == 's')
-                result = 's';
-            else if ( aux == 'N' || aux == 'n')
-                result = 'n';
-        }
-        while ( result == '\0' ) // mientras que no haya resultado, no se hace nada
-
-        seguir_jugando = (result == 's') ? true : false;
-    }
-    
+    return 0;
 }
 
 
