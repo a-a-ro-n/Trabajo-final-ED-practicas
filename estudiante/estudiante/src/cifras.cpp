@@ -13,7 +13,7 @@ class Cifras{
         const vector<int> C = {1,2,3,4,5,6,7,8,9, 10, 25, 50, 75, 100};
         set<int> opciones;  //uso set porque son más eficientes los borrados e inserciones
         int num_aleatorio;
-     //pruebas
+     //pruebass
     public:
         Cifras(){
             srand(time(NULL));
