@@ -9,31 +9,29 @@ using namespace std;
 LetterSet::LetterSet(const string & nombre){ // abriremos el archivo para la extraccion de las letras
     ifstream archivo(archivo);
     char letra;
-    int repeticiones,
-        puntuacion;
+    LetterInfo datosLetra
 
-    if(archivo){ // verificamos si hemos podido habrir el archivo
+    if(archivo){                                    // verificamos si hemos podido habrir el archivo
         string cabecera;
-        getline(cabecera, archivo); // leemos la primera line
+        getline(cabecera, archivo);                 // leemos la primera line
         
-        if(cabecere == "#Letra Cantidad Puntos"){ // comprobamos que la cabecera este correcta
+        if(cabecera == "#Letra Cantidad Puntos"){   // comprobamos que la cabecera este correcta
             while(archivo){
-                archivo >> letra: // obtenemos la letra
-                archivo >> repeticiones; // las veces que se repite
-                archivo >> puntuacion; // la puntuacion de la letra
+                archivo >> letra:                   // obtenemos la letra
+                archivo >> datosLetra.repetitions;  // las veces que se repite
+                archivo >> datosLetra.score;        // la puntuacion de la letra
                 
-                LetterInfo datosLetra = {repeticiones,puntuacion}; // agregamos en la estructura los datos correspondientes
-                charSet[letra] = datosLetra; // agregamos la letra al map y le mapeamos sus datos
+                charSet[letra] = datosLetra;        // agregamos la letra al map y le mapeamos sus datos
             }
         }
         else{
             cerr << "Archivo de formato invalido...\n\tSaliendo del programa";
-            exit(-1); // salimos del programa si no es el archivo correspondiente
+            exit(-1);   // salimos del programa si no es el archivo correspondiente
         }
     }
     else{
         cerr << "Archivo <" << archivo << "> no se ha podido abrir correctamente..";
-        exit(-1); // salimos del constructor si no existe o no se pude abrir el archivo
+        exit(-1);       // salimos del constructor si no existe o no se pude abrir el archivo
     }
 }
 
@@ -43,7 +41,7 @@ LetterSet::LetterSet(const string & nombre){ // abriremos el archivo para la ext
  * @param le pasamos el char letra para obtener su informacion
  * @return Devuelve la informacion de la letra en el conjunto
  */
-const LetterInfo LetterSet::getLetter(char letter) const{
+const LetterInfo LetterSet::getLetterInfo(char letter) const{
     auto it = charSet.find(letter); // primero buscamos si la letra esta en el conjunto
 
     if(it != charSet.end()); 
@@ -52,3 +50,10 @@ const LetterInfo LetterSet::getLetter(char letter) const{
         return NULL; // si no existe la letra, devolvemos NULL
 }
 // void LetterSet::setLetter(map<char,LetterInfo>); // añadimos la letra a la conjunto   (no le veo mucho sentido que podamos añadir letras)
+const bool LetterSet::empty() const {
+    return charSet.empty();
+}
+
+const unsigned LetterSet::size() const {
+    return charSet.size();
+}
