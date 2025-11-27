@@ -50,11 +50,24 @@ class LettersSet{
         const bool empty() const;
         const unsigned size() const;
         
-    class iterator{
-        
+        class iterator {
+            private:
+                map<char, LetterInfo>::iterator it;
 
-        friend LetterSet;
-    }
+            public:
+
+                iterator();
+                iterator(map<char, LetterInfo>::iterator );
+                pair<const char, LetterInfo>& operator*() const; // Devuelve una referencia al par clave-valor del mapa
+                iterator& operator++();
+                bool operator!=(const iterator &) const;
+                bool operator==(const iterator &) const;
+
+                friend class LettersSet; 
+        };
+    
+        iterator begin();
+        iterator end();
 };
 
 #endif
