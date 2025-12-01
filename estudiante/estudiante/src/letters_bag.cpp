@@ -27,3 +27,34 @@ const string LettersBag::toString() {   // mostramos por pantalla todas las letr
 
     return result;
 }
+
+LettersBag::iterator::iterator(){}
+
+LettersBag::iterator::iterator(vector<char>::iterator & iter){
+    it(iter);
+}
+
+char & LettersBag::iterator::operator*() const {
+    return *it;
+}
+
+iterator & LettersBag::iterator::operator++(){
+    ++it:
+    return *this;
+}
+
+bool LettersBag::iterator::operator!=(const iterator & other) const {
+    return it != other.it; 
+}
+
+bool LettersBag::iterator::operator==(const iterator & other) const{
+    return  it == other.it;
+}
+
+LettersBag::iterator begin(){
+    return iterator(bag.begin());
+}
+
+LettersBag::iterator end(){
+    return iterator(bag.end());
+}
