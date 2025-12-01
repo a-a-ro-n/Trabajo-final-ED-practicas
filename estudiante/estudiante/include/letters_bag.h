@@ -30,10 +30,19 @@ class LettersBag {
                 vector<char>::iterator it;
 
             public:
-                
 
-            friend LetterBag;
+                iterator();
+                iterator(vector<char>::iterator &);
+                char & operator*() const; // Devuelve una referencia al valor
+                iterator & operator++();
+                bool operator!=(const iterator &) const;
+                bool operator==(const iterator &) const;
+
+                friend LetterBag;
         };
+    
+    iterator begin();
+    iterator end();
 };
 
 #endif
