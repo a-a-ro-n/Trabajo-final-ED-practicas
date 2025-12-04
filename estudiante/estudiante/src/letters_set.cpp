@@ -61,7 +61,7 @@ const unsigned LetterSet::size() const {
 LetterSet::iterator::iterator() {}
 
 LetterSet::iterator::iterator(map<char, LetterInfo>::iterator iter){
-    it(iter);
+    iterator(iter);
 }
 
 LetterSet::iterator::pair<const char, LetterInfo>& operator*() const{

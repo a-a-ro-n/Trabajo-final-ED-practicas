@@ -23,12 +23,12 @@ class Dictionary {
         *
         * Crea un Dictionary vacío
         */
-        Dictionary(){}
+        Dictionary();
 
         /**
         * @brief Destructor
         */
-        ~Dictionary(){}
+        ~Dictionary();
 
         /**
         * @brief Limpia el Dictionary
