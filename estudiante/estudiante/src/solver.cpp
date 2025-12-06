@@ -26,17 +26,22 @@ bool Solver::poderConstruir(string palabra, vector<char> available_letters){
 }
 
 vector<string> Solver::getSolutions(const vector<char>& available_letters, bool score_game){
-    vector<string> out;
     Dictionary dict;
+    vector<string> out = {""};  //para que cuando comparemos con la primera posición(linea34) no haya problema
     for(auto it = dict.begin(); it != dict.end(); ++it){
-        if(poderConstruir(*it, available_letters) ){
-            if(*it.size() > out[0].size() ){    //comparo solo con el primer elemento, ya que si hay más, todos tendrán su mismo tamaño
-                out.clear();
-                out.push_back(*it);
-            }else if(*it.size() == out[0].size() ){
-                out.push_back(*it);
+        if(!score_game){
+            if(poderConstruir(*it, available_letters) ){
+                if((*it).size() > out[0].size() ){    //comparo solo con el primer elemento, ya que si hay más, todos tendrán su mismo tamaño
+                    out.clear();
+                    out.push_back(*it);
+                }else if((*it).size() == out[0].size() ){
+                    out.push_back(*it);
+                }
             }
+        } else{
+
         }
+        
     }
 return out;
 }
