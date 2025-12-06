@@ -41,7 +41,7 @@ vector<string> Solver::getSolutions(const vector<char>& available_letters, bool 
         } else{
 
         }
-        
+           
     }
 return out;
 }
