@@ -17,7 +17,7 @@ private:
 
   //A completar
 private bool poderConstruir(string palabra, vector<char> available_letters);
-
+private int puntosPalabra(string palabra);
 public vector<string> getSolutions(const vector<char>& available_letters, bool score_game);
 };
 
