@@ -25,10 +25,17 @@ bool Solver::poderConstruir(string palabra, vector<char> available_letters){
     return esta;
 }
 
+int Solver::puntosPalabra(string palabra){
+    int suma = 0;
+    for(auto it = palabra.begin(); it != palabra.end(); ++it){
+        suma += ls.getLetterInfo(*it).puntos;
+    }
+    return suma;
+}
+
 vector<string> Solver::getSolutions(const vector<char>& available_letters, bool score_game){
-    Dictionary dict;
-    vector<string> out = {""};  //para que cuando comparemos con la primera posición(linea34) no haya problema
-    for(auto it = dict.begin(); it != dict.end(); ++it){
+    vector<string> out = {""};  //para que cuando comparemos con la primera posición(linea41) no haya problema
+    for(auto it = dictionary.begin(); it != dictionary.end(); ++it){
         if(!score_game){
             if(poderConstruir(*it, available_letters) ){
                 if((*it).size() > out[0].size() ){    //comparo solo con el primer elemento, ya que si hay más, todos tendrán su mismo tamaño
@@ -39,7 +46,12 @@ vector<string> Solver::getSolutions(const vector<char>& available_letters, bool 
                 }
             }
         } else{
-
+            if(puntosPalabra(*it) > puntosPalabra(out[0]) ){
+                out.clear();
+                out.push_back(*it);
+            } else if( puntosPalabra(*it) == puntosPalabra(out[0]) ){
+                out.push_back(*it);
+            }
         }
     }
     return out;
