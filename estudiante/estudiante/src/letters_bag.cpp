@@ -28,7 +28,12 @@ const string LettersBag::toString() {   // mostramos por pantalla todas las letr
     return result;
 }
 
-LettersBag::iterator::iterator(){}
+LettersBag::iterator::iterator(){
+    /*
+        vector<char>::iterator aux;
+        it = aux;
+    */
+}
 
 LettersBag::iterator::iterator(vector<char>::iterator & iter){
     it(iter);
