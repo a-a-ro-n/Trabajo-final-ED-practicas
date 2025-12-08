@@ -26,12 +26,12 @@ LetterSet::LetterSet(const string & nombre){ // abriremos el archivo para la ext
         }
         else{
             cerr << "Archivo de formato invalido...\n\tSaliendo del programa";
-            exit(-1);   // salimos del programa si no es el archivo correspondiente
+            exit(1);   // salimos del programa si no es el archivo correspondiente
         }
     }
     else{
         cerr << "Archivo <" << archivo << "> no se ha podido abrir correctamente..";
-        exit(-1);       // salimos del constructor si no existe o no se pude abrir el archivo
+        exit(1);       // salimos del constructor si no existe o no se pude abrir el archivo
     }
 }
 
@@ -49,7 +49,9 @@ const LetterInfo LetterSet::getLetterInfo(char letter) const{
     else
         return NULL; // si no existe la letra, devolvemos NULL
 }
+
 // void LetterSet::setLetter(map<char,LetterInfo>); // añadimos la letra a la conjunto   (no le veo mucho sentido que podamos añadir letras)
+
 const bool LetterSet::empty() const {
     return charSet.empty();
 }
