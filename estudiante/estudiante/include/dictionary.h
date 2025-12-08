@@ -112,6 +112,7 @@ class Dictionary {
                 set<string>::iterator it;
             public:
                 iterator ();
+                iterator(set<string>::const_iterator);
                 string operator *();
                 iterator & operator ++();
                 bool operator ==(const iterator &i);
@@ -128,6 +129,8 @@ class Dictionary {
                 set<string>::const_iterator it;
             public:
                 const_iterator ();
+                const_iterator(set<string>::const_iterator);
+
                 string operator *();
                 const_iterator & operator ++();
                 bool operator ==(const const_iterator &i);
