@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 
   if(!f_diccionario){
     cout << "No puedo abrir el fichero " << argv[1] << endl;
-    return 0;
+    return 1;
   }
 
   Dictionary diccionario;
