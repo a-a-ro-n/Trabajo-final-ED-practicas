@@ -44,7 +44,7 @@ unsigned int Dictionary::size() const
 */
 bool Dictionary::empty() const 
 { 
-    return words.size() == 0; 
+    return words.empty(); 
 }
 
 /**
@@ -75,14 +75,15 @@ bool Dictionary::erase(const string &val)
 *
 * Permite leer las palabras de un fichero de texto e introducirlas en el
 * diccionario
-* @param is Flujo de entrada
+* @param isz Flujo de entrada
 * @param dic Diccionario a rellenar
 * @return Flujo de entrada para poder encadenar el operador
 */
 istream & operator>>(istream &is, Dictionary &dic)
 {
-    for(string word : dic.words)
-        (*this).words.insert(word); // se deben de insertar plabra por palabra del diccionario
+    string word;
+    while(is >> word)
+        dic.words.insert(word); // se deben de insertar plabra por palabra del diccionario
 
     return is;
 }
@@ -99,7 +100,7 @@ istream & operator>>(istream &is, Dictionary &dic)
 ostream & operator<<(ostream &os, const Dictionary &dic)
 {
     for(string word : dic.words )
-        os << word; // insertamos las palabras del diccionario en el flujo de salida
+        os << word << "\n"; // insertamos las palabras del diccionario en el flujo de salida
 
     return os;
 }
@@ -131,10 +132,8 @@ int Dictionary::getOccurrences(const char c) const {
 int Dictionary::getTotalLetters() const {
     int result = 0;
 
-    for(string word : words){
-        for(char c : word)
-            result++;
-    }
+    for(string word : words)
+        result += word.size(); // aumentamos el contador las letras que tenga word
 
     return result;
 }
@@ -143,14 +142,18 @@ int Dictionary::getTotalLetters() const {
 * @brief Iterador del diccionario. Obtiene las palabras ordenadas alfabéticamente
 */
 //set<string>::iterator it;
-Dictionary::iterator ();
+Dictionary::iterator::iterator(){}
+
+Dictionary::iterator::iterator(set<string>::iterator otro){
+    it = otro;
+}
 
 string Dictionary::iterator::operator *(){
     return *it;
 }
 
-iterator & Dictionary::iterator::operator ++(){
-    it++;
+Dictionary::iterator & Dictionary::iterator::operator ++(){
+    ++it;
     return *this;
 }
 
@@ -166,13 +169,17 @@ bool Dictionary::iterator::operator !=(const iterator &i){
 * @brief Iterador constante del diccionario. Obtiene las palabras ordenadas alfabéticamente
 */
 //set<string>::const_iterator it;
-Dictionary::const_iterator ();
+Dictionary::const_iterator::const_iterator(){}
+
+Dictionary::const_iterator::const_iterator(set<string>::const_iterator otro){
+    it = otro;
+}
 
 string Dictionary::const_iterator::operator *(){
     return *it;
 }
 
-const_iterator & Dictionary::const_iterator::operator ++(){
+Dictionary::const_iterator & Dictionary::const_iterator::operator ++(){
     ++it;
     return *this;
 }
@@ -189,9 +196,9 @@ bool Dictionary::const_iterator::operator !=(const const_iterator &i){
 * @brief Indica si una palabra esta en el diccionario
 * @return iterador apuntando a la palabra si esta o end si no esta
 */
-iterator Dictionary::find(const string & w)
+Dictionary::iterator Dictionary::find(const string & w)
 {
-    return words.find(w);
+    return iterator(words.find(w));
 }
 
 /**
@@ -217,23 +224,9 @@ vector<string> Dictionary::getWordsLength(int longitud){
 * @return Booleano que indica si la inserción ha tenido éxito. Una palabra se inserta
 * con éxito si no existía previamente en el diccionario. El iterador apunta a la palabra
 */
-pair<iterator,bool> Dictionary::insert(const string &val){
-    pair<iterator,bool> insercion
-    auto it = words.find(val);
-
-    if(it != words.end()){
-        insercion.first = it;
-        insercion.second = false;
-    }
-    else{
-        words.insert();
-        it = words.find(val); // almaceno la nueva posicion de la palabra
-
-        insercion.first = it;
-        insercion.second = true;
-    }
-
-    return insercion;
+std::pair<Dictionary::iterator,bool> Dictionary::insert(const string &val){
+    auto insercion = words.insert(val); // esto ya devuelve un par
+    return {iterator(insercion.first), insercion.second};
 }
 
 /**
@@ -244,11 +237,11 @@ pair<iterator,bool> Dictionary::insert(const string &val){
 * el segundo donde ya no contiene el prefijo. Si no existe el prefijo se devuelve los dos
 * iteradores apuntando a end()
 */
-pair<iterator, iterator> Dictionary::range_prefix(const string &val){
+std::pair<Dictionary::iterator, Dictionary::iterator> Dictionary::range_prefix(const string &val){
     auto first = end(),
          last  = end();
 
-    // 1. Buscar la primera palabra con el prefijo
+    // Buscar la primera palabra con el prefijo
     for(auto it = begin(); it != end(); ++it) {
         string w = *it;
 
@@ -268,8 +261,8 @@ pair<iterator, iterator> Dictionary::range_prefix(const string &val){
     if(first == end())
         return {end(), end()};
 
-    
-    for(auto it = first; it != end(); ++it) {
+    auto it = first;
+    for(; it != end(); ++it) {
         string w = *it;
 
         if(w.size() >= val.size()){
@@ -283,27 +276,27 @@ pair<iterator, iterator> Dictionary::range_prefix(const string &val){
 
     last = it;  // primera palabra que ya no cumple el prefijo
 
-    return { first, last };
+    return { iterator(first), iterator(last) };
 }
 
 /**
 * @brief Obtiene el iterador apuntando a la primera palabra del diccionario
 */
-iterator Dictionary::begin(){
+Dictionary::iterator Dictionary::begin(){
     return iterator(words.begin());
 }
 
-const_iterator Dictionary::begin()const{
+Dictionary::const_iterator Dictionary::begin()const{
     return const_iterator(words.begin());
 }
 
 /**
 * @brief Obtiene el iterador apuntando al final del diccionario.
 */
-iterator Dictionary::end(){
+Dictionary::iterator Dictionary::end(){
     return iterator(words.end());
 }
 
-const_iterator Dictionary::end()const{
+Dictionary::const_iterator Dictionary::end()const{
     return const_iterator(words.end());
 }    
