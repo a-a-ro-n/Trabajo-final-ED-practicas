@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <time.h>
+#include <set>
 
 #include "dictionary.h"     // diccionario
 #include "letters_bag.h"    // bolsa de letras repetidas
@@ -12,8 +13,8 @@
 
 using namespace std;
 
-void ModoPalabraMasLarga(Solver & solver, const LettersSet & set, const int CANTIDAD_LETRAS, string & solucion_user, set<string> & soluciones, string & mejor_solucion);
-void ModoPalabraMayorPuntuacion(Solver & solver, const LettersSet & set, const int CANTIDAD_LETRAS, string & solucion_user, set<string> & soluciones, string & mejor_solucion);
+void ModoPalabraMasLarga(Solver & , const LetterSet & , const int , string & , set<string> & , string &);
+void ModoPalabraMayorPuntuacion(Solver & , const LetterSet & , const int , string & , set<string> & , string &);
 
 int main(int argc, char *argv[]){
     if(argc != 5){
@@ -36,8 +37,8 @@ int main(int argc, char *argv[]){
         return 1;
     }
 
-    LetterSet set(argv[2]); // registramos el conjunto de letras
-    Solver solver(diccionario, set); 
+    LetterSet set_config(argv[2]); // registramos el conjunto de letras
+    Solver solver(diccionario, set_config); 
 
     int CANTIDAD_LETRAS = stoi(argv[3]); // obtenemos la cantidad de letras con las que se jugaran
     if (CANTIDAD_LETRAS <= 0) {
@@ -49,13 +50,12 @@ int main(int argc, char *argv[]){
     set<string> soluciones;                     
     string mejor_solucion = "";                 
 
-    char modo = argv[4]; // obtenemos el modo de juego
+    char modo = *argv[4]; // obtenemos el modo de juego
     
-    // 5. Determinar y ejecutar el modo de juego
     if(modo == 'L' || modo == 'l')
-        ModoPalabraMasLarga(solver, set, CANTIDAD_LETRAS, solucion_usuario, soluciones, mejor_solucion);
+        ModoPalabraMasLarga(solver, set_config, CANTIDAD_LETRAS, solucion_usuario, soluciones, mejor_solucion);
     else if (modo == 'P' || modo == 'p')
-        ModoPalabraMayorPuntuacion(solver, set, CANTIDAD_LETRAS, solucion_usuario, soluciones, mejor_solucion);
+        ModoPalabraMayorPuntuacion(solver, set_config, CANTIDAD_LETRAS, solucion_usuario, soluciones, mejor_solucion);
     else{
         cerr << "Error... \n\t parametro 4 (modo de juego) no corresponde con lo esperado [P/L]" << endl;
         return 1;
@@ -64,13 +64,13 @@ int main(int argc, char *argv[]){
     return 0;
 }
 
-void ModoPalabraMasLarga(Solver & solver, const LettersSet & set, const int CANTIDAD_LETRAS, string & solucion_user, set<string> & soluciones, string & mejor_solucion){
+void ModoPalabraMasLarga(Solver & solver, const LetterSet & set_config, const int CANTIDAD_LETRAS, string & solucion_user, set<string> & soluciones, string & mejor_solucion){
     srand(time(NULL));
     bool seguir_jugando = true;
 
 // ---------------------------------------------------------------------
     while(seguir_jugando){
-        LettersBag bag(set); // Nueva bolsa para la ronda
+        LettersBag bag(set_config); // Nueva bolsa para la ronda
         vector<char> letras;
         string letras_string = "";
         
@@ -82,7 +82,7 @@ void ModoPalabraMasLarga(Solver & solver, const LettersSet & set, const int CANT
                 LettersBag::iterator it = bag.begin();
                 
                 while(count != indice && it != bag.end()){ // avanzamos it hasta que lleguemos a la posicion indicada o no tengamos mas espacio en bag
-                    it++;
+                    ++it;
                     count++;
                 }
 
@@ -150,13 +150,13 @@ void ModoPalabraMasLarga(Solver & solver, const LettersSet & set, const int CANT
     }
 }
 
-void ModoPalabraMayorPuntuacion(Solver & solver, const LettersSet & set, const int CANTIDAD_LETRAS, string & solucion_user, set<string> & soluciones, string & mejor_solucion){
+void ModoPalabraMayorPuntuacion(Solver & solver, const LetterSet & set_config, const int CANTIDAD_LETRAS, string & solucion_user, set<string> & soluciones, string & mejor_solucion){
     srand(time(NULL));
     bool seguir_jugando = true;
 
 // ---------------------------------------------------------------------
     while(seguir_jugando){
-        LettersBag bag(set); // Nueva bolsa para la ronda
+        LettersBag bag(set_config); // Nueva bolsa para la ronda
         vector<char> letras;
         string letras_string = "";
         
@@ -168,7 +168,7 @@ void ModoPalabraMayorPuntuacion(Solver & solver, const LettersSet & set, const i
                 LettersBag::iterator it = bag.begin();
                 
                 while(count != indice && it != bag.end()){ // avanzamos it hasta que lleguemos a la posicion indicada o no tengamos mas espacio en bag
-                    it++;
+                    ++it;
                     count++;
                 }
  
@@ -192,7 +192,7 @@ void ModoPalabraMayorPuntuacion(Solver & solver, const LettersSet & set, const i
 
         for(string word : soluciones_globales) {
             soluciones.insert(word); // añadimos los resultados al conjunto de soluciones
-            int score = puntosPalabra(word); 
+            int score = solver.puntosPalabra(word); 
             
             
             if(score > max_score){ // buscamos la palabra de mayor puntuación
