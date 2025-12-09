@@ -86,6 +86,31 @@ bool LetterSet::iterator::operator==(const iterator & other) const {
     return it == other.it;
 }
 
+LetterSet::const_iterator::const_iterator() {}
+
+LetterSet::const_iterator::const_iterator(const map<char, LetterInfo>::const_iterator iter) : it(iter) {}
+
+const pair<const char, LetterInfo> & LetterSet::const_iterator::operator*(){
+    return *it;
+}
+
+const pair<const char, LetterInfo>* LetterSet::const_iterator::operator->() {
+    return &(*it);
+}
+
+LetterSet::const_iterator & LetterSet::const_iterator::operator++(){
+    ++it;
+    return *this;
+}
+
+bool LetterSet::const_iterator::operator!=(const const_iterator & other) const {
+    return it != other.it;
+}
+
+bool LetterSet::const_iterator::operator==(const const_iterator & other) const {
+    return it == other.it;
+}
+
 LetterSet::iterator LetterSet::begin() {
     return iterator(charSet.begin());
 }
@@ -94,10 +119,10 @@ LetterSet::iterator LetterSet::end() {
     return iterator(charSet.end());
 }
 
-LetterSet::iterator LetterSet::begin() const {
-    return iterator(charSet.begin());
+LetterSet::const_iterator LetterSet::begin() const {
+    return const_iterator(charSet.begin());
 }
 
-LetterSet::iterator LetterSet::end() const {
-    return iterator(charSet.end());
+LetterSet::const_iterator LetterSet::end() const {
+    return const_iterator(charSet.end());
 }
