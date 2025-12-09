@@ -16,10 +16,10 @@ class Solver{
         LetterSet ls;
 
   //A completar
-    private:
+    public: // tienen que ser publicos para poder usarlos en el letras.cpp
+        Solver(const Dictionary & dic, const LetterSet & letter) : dictionary(dic) , ls(letter){};
         bool poderConstruir(string palabra, vector<char> available_letters);
         int puntosPalabra(string palabra);
-    public:
         vector<string> getSolutions(const vector<char>& available_letters, bool score_game);
 };
 
