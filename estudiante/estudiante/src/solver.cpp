@@ -28,7 +28,7 @@ bool Solver::poderConstruir(string palabra, vector<char> available_letters){
 int Solver::puntosPalabra(string palabra){
     int suma = 0;
     for(auto it = palabra.begin(); it != palabra.end(); ++it){
-        suma += ls.getLetterInfo(*it).puntos;
+        suma += ls.getLetterInfo(*it).score;
     }
     return suma;
 }
