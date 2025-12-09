@@ -69,12 +69,31 @@ class LetterSet{
 
                 friend class LetterSet; 
         };
+
+        class const_iterator {
+            private:
+                map<char, LetterInfo>::const_iterator it;
+
+            public:
+
+                const_iterator();
+                const_iterator(map<char, LetterInfo>::const_iterator );
+                
+                const pair<const char, LetterInfo> & operator*(); // Devuelve una referencia al par clave-valor del mapa
+                const pair<const char, LetterInfo> * operator->(); 
+
+                const_iterator & operator++();
+                bool operator!=(const const_iterator &) const;
+                bool operator==(const const_iterator &) const;
+
+                friend class LetterSet; 
+        };
     
         iterator begin();
         iterator end();
 
-        iterator begin() const;
-        iterator end() const;
+        const_iterator begin() const;
+        const_iterator end() const;
 };
 
 #endif
