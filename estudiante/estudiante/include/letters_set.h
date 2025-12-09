@@ -3,8 +3,9 @@
 
 #include <iostream>
 #include <string>
-#include <ifstream> // para la apertura del archivo y extraccion de letras
+#include <fstream> // para la apertura del archivo y extraccion de letras
 #include <map>
+#include <stdlib.h> // para exit()
 
 using namespace std;
 
@@ -27,7 +28,7 @@ struct LetterInfo{
 };
 
 
-class LettersSet{
+class LetterSet{
     private:
         map<char, LetterInfo> charSet;  // mapeado de las letras
 
@@ -47,8 +48,8 @@ class LettersSet{
          */
         const LetterInfo getLetterInfo(char) const;
         // void setLetter(map<char,LetterInfo>); // inecesaria implementacion
-        const bool empty() const;
-        const unsigned size() const;
+        bool empty() const;
+        unsigned size() const;
         
         class iterator {
             private:
@@ -58,16 +59,22 @@ class LettersSet{
 
                 iterator();
                 iterator(map<char, LetterInfo>::iterator );
-                pair<const char, LetterInfo>& operator*() const; // Devuelve una referencia al par clave-valor del mapa
-                iterator& operator++();
+                
+                pair<const char, LetterInfo> & operator*(); // Devuelve una referencia al par clave-valor del mapa
+                pair<const char, LetterInfo> * operator->(); 
+
+                iterator & operator++();
                 bool operator!=(const iterator &) const;
                 bool operator==(const iterator &) const;
 
-                friend class LettersSet; 
+                friend class LetterSet; 
         };
     
         iterator begin();
         iterator end();
+
+        iterator begin() const;
+        iterator end() const;
 };
 
 #endif
