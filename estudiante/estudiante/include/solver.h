@@ -13,7 +13,7 @@ using namespace std;
 class Solver{
     private:
         Dictionary dictionary;
-        LetterSet letters_set;
+        LetterSet ls;
 
   //A completar
     private:
