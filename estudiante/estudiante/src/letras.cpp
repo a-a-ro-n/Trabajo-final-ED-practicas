@@ -4,87 +4,139 @@
 #include <string>
 #include <time.h>
 
-#include "dictionary.h"
-#include "letters_bag.h"
-#include "letters_set.h"
-#include "solver.h"
+#include "dictionary.h"     // diccionario
+#include "letters_bag.h"    // bolsa de letras repetidas
+#include "letters_set.h"    // conjunto de todas las letras con puntuaciones y repeticiones
+#include "solver.h"         // puntuacion y construccion de palabras
 
 
 using namespace std;
 
-void ModoPalabraMasLarga(LettersSet &, const int, const LettersBag &, string &, set<string> &, string &);
-void ModoPalabraMayorPuntuacion(LettersSet &, const int, const LettersBag &, string &, set<string> &, string &);
+void ModoPalabraMasLarga(Solver & solver, const LettersSet & set, const int CANTIDAD_LETRAS, string & solucion_user, set<string> & soluciones, string & mejor_solucion);
+void ModoPalabraMayorPuntuacion(Solver & solver, const LettersSet & set, const int CANTIDAD_LETRAS, string & solucion_user, set<string> & soluciones, string & mejor_solucion);
 
 int main(int argc, char *argv[]){
-    if(argc != 6)
-        return 1; // si no tenemos todos los parametros de entrada salimos del programa
+    if(argc != 5){
+        cerr << "Error. Número de argumentos incorrecto. Se esperan 4 argumentos: \n\t1. Ruta del archivo del diccionario.\n"
+             << "\t2. Ruta del archivo de letras (LetterSet).\n\t3. Cantidad de letras a repartir (entero positivo).\n"
+             << "\t4. Modo de juego (L/l para Palabra Más Larga, P/p para Mayor Puntuación).\n";
+
+        return 1;
+    }
     
-    LettersSet fichero(argv[4].toString());     // obtenemos las letras del archivo pasado
-    const int CANTIDAD_LETRAS = argv[5].stoi(); // obtenemos la cantidad de laetras a tener
-    const LettersBag letras(CANTIDAD_LETRAS);   // contenedor de letras para formar la palabra
+    Dictionary diccionario;
+    ifstream dic(argv[1]);
 
-    string solucion_usuario = "";               // palabra digitada por el usuario
-    set<string> soluciones;                     // contenedor de resultados
-    string mejor_solucion = "";                 // almaceno la mejor solucion
-
-    char modo = argv[6];                        // obtengo el modo de juego
-    if(modo == L || modo == l)
-        ModoPalabraMasLarga(fichero, CANTIDAD_LETRAS, solucion_usuario, soluciones, mejor_solucion);
-    else if (modo == P || modo == p)
-        ModoPalabraMayorPuntuacion(fichero, CANTIDAD_LETRAS, solucion_usuario, soluciones, mejor_solucion);
+    if(dic){ // Si se abre el archivo porporcionado, lo registramos como diccionario
+        dic >> diccionario; 
+        dic.close();
+    } 
     else{
-        cerr << "Error... \n\t parametro 6 (modo de juego) no corresponde con lo esperado [P/L]";
-        return 1
+        cerr << "Error al abrir el archivo del diccionario: " << argv[1] << endl;
+        return 1;
+    }
+
+    LetterSet set(argv[2]); // registramos el conjunto de letras
+    Solver solver(diccionario, set); 
+
+    int CANTIDAD_LETRAS = stoi(argv[3]); // obtenemos la cantidad de letras con las que se jugaran
+    if (CANTIDAD_LETRAS <= 0) {
+        cerr << "Error... Cantidad de letras debe ser un entero positivo, no " << argv[3] << endl;
+        return 1;
+    }
+
+    string solucion_usuario = "";               
+    set<string> soluciones;                     
+    string mejor_solucion = "";                 
+
+    char modo = argv[4]; // obtenemos el modo de juego
+    
+    // 5. Determinar y ejecutar el modo de juego
+    if(modo == 'L' || modo == 'l')
+        ModoPalabraMasLarga(solver, set, CANTIDAD_LETRAS, solucion_usuario, soluciones, mejor_solucion);
+    else if (modo == 'P' || modo == 'p')
+        ModoPalabraMayorPuntuacion(solver, set, CANTIDAD_LETRAS, solucion_usuario, soluciones, mejor_solucion);
+    else{
+        cerr << "Error... \n\t parametro 4 (modo de juego) no corresponde con lo esperado [P/L]" << endl;
+        return 1;
     }
 
     return 0;
 }
 
-
-void ModoPalabraMasLarga(LettersSet & fichero, const int CANTIDAD_LETRAS, const LettersBag & letras, string & solucion_usuario, set<string> & soluciones, string & mejor_solucion){
-
-}
-
-void ModoPalabraMayorPuntuacion(LettersSet & fichero, const int CANTIDAD_LETRAS, const LettersBag & letras, string & solucion_usuario, set<string> & soluciones, string & mejor_solucion){
-    srand(time(NULL));                              // obtenemos una semilla en este mismo intante
-    int puntuacion_palabra = 0;
+void ModoPalabraMasLarga(Solver & solver, const LettersSet & set, const int CANTIDAD_LETRAS, string & solucion_user, set<string> & soluciones, string & mejor_solucion){
+    srand(time(NULL));
     bool seguir_jugando = true;
 
-    while ( seguir_jugando ){
-        cout << "Las letras son: ";
-        string cadena = "";
+// ---------------------------------------------------------------------
+    while(seguir_jugando){
+        LettersBag bag(set); // Nueva bolsa para la ronda
+        vector<char> letras;
+        string letras_string = "";
+        
+        for(int i = 0; i < CANTIDAD_LETRAS; i++){
+            if(bag.size() > 0) { // si la bolsa no esta vacia, cogemos una letra aleatoria del conjunto
+                int indice = rand() % bag.size(),
+                    count = 0; // contador para obtener la posicion
 
-        multimap<int,char> posicion_letra[CANTIDAD_LETRAS];      // map de la posicion de las letras para manejarlas como un array
-        multimap<char,int> puntuacion_letra[CANTIDAD_LETRAS];    // map de puntuacion las letras, dadas una letra
+                LettersBag::iterator it = bag.begin();
+                
+                while(count != indice && it != bag.end()){ // avanzamos it hasta que lleguemos a la posicion indicada o no tengamos mas espacio en bag
+                    it++;
+                    count++;
+                }
 
-        for( int i = 0; i < CANTIDAD_LETRAS; i++ ){
-            char c = letras[rand() % letras.size()];    // obtenemos la letra
-            int puntuacion = fichero.get[c].score;      // obtenemos la puntuacion de la letra
-
-            posicion_letra[i] = c;                      // añadimos en la posicion i la letra aleatoria del conjunto
-            puntuacion_letra[c] = puntuacion;           // añadimos la puntuacion dada la letra obtenida;
-
-            cadena += "\t" + posicion_letra[i];
+                char c = *it; // obtenemos la letra y la quitamos del conjunto
+                bag.erase(c); 
+                
+                letras.push_back(c); // añadimos al vector la letra obtenida de forma aleatoria
+                letras_string += c;
+            }
         }
-        cout << cadena << endl;                     // sacamos por pantalla las letras
+
+        cout << "Las letras son: " << letras_string << endl; // mostramos las letras
+// ---------------------------------------------------------------------
+
+        soluciones.clear(); 
+        mejor_solucion = "";
+        int tamaño = 0;
+
+// ---------------------------------------------------------------------
+        vector<string> soluciones_globales = solver.getSolutions(letras, false); // Llamada al Solver para obtener todas las palabras válidas
+
+        for(string word : soluciones_globales){
+            soluciones.insert(word); // insertamos las soluciones en el conjunto
+            
+            
+            if(word.size() > tamaño){ // buscamos la palabra más larga
+                tamaño = word.size();
+                mejor_solucion = word;
+            }
+        }
+// ---------------------------------------------------------------------
 
         cout << "Dime tu solucion: " ;
-        cin >> solucion_usuario;                    // Recogemos la solucion apriori del usuario
-        cout << solucion_usuario << endl;           // Imprimimos la solucion
-        /*
-            HAY QUE COMPROBAR SI LA PALABRA EXISTE SIENDO VALIDA 
-        */
-        cout << solucion_usuario << "\tPuntuación: "
-               << puntuacion_palabra << endl;       // Mostramos la puntuacion de la palabra
+        cin >> solucion_user;
+        cout << "\nLa palabra del usuario es: " << solucion_user << endl;
 
-        cout << "\nMis soluciones son: " << endl; 
-        for( solucion : soluciones )
-            cout << solucion << "\tPuntuacion: " + puntuacion_palabra;
-
-        cout << "Mejor Solucion: " << mejor_solucion << endl;
+// ---------------------------------------------------------------------
+        bool valido = (soluciones.find(solucion_user) != soluciones.end()); // si la palabra del usuario está en la lista de soluciones, es válida.
         
+        if (valido)
+            cout << "Palabra válida. Longitud: " << solucion_user.size() << endl;
+        else
+            cout << "Palabra inválida (no existe en el diccionario o no se puede formar con las letras disponibles)." << endl;
+        
+
+        cout << "\nMis soluciones son: " << endl; // soluciones del programa
+        for(string sol : soluciones)
+            cout << sol << "\tLongitud: " << sol.size() << endl;
+        
+        cout << "\nMejor Solucion (Longitud Máxima): " << mejor_solucion << "\tLongitud: " << tamaño << endl;
+// ---------------------------------------------------------------------
+
         char result = '\0';
-        do{
+        do {
             cout << "¿Quieres seguir jugando [S/N]?";
             char aux;
             cin >> aux;
@@ -92,9 +144,101 @@ void ModoPalabraMayorPuntuacion(LettersSet & fichero, const int CANTIDAD_LETRAS,
                 result = 's';
             else if ( aux == 'N' || aux == 'n')
                 result = 'n';
-        }while ( result == '\0') // mientras que no haya resultado, no se hace nada
+        } while (result == '\0'); 
 
-        seguir_jugando = (result == 's') ? true : false;
+        seguir_jugando = (result == 's'); // volver a jugar?
     }
-    
+}
+
+void ModoPalabraMayorPuntuacion(Solver & solver, const LettersSet & set, const int CANTIDAD_LETRAS, string & solucion_user, set<string> & soluciones, string & mejor_solucion){
+    srand(time(NULL));
+    bool seguir_jugando = true;
+
+// ---------------------------------------------------------------------
+    while(seguir_jugando){
+        LettersBag bag(set); // Nueva bolsa para la ronda
+        vector<char> letras;
+        string letras_string = "";
+        
+        for(int i = 0; i < CANTIDAD_LETRAS; i++){
+            if(bag.size() > 0){
+                int indice = rand() % bag.size(),
+                    count = 0; // contador para obtener la posicion
+
+                LettersBag::iterator it = bag.begin();
+                
+                while(count != indice && it != bag.end()){ // avanzamos it hasta que lleguemos a la posicion indicada o no tengamos mas espacio en bag
+                    it++;
+                    count++;
+                }
+ 
+                char c = *it; // obtenemos la letra y la quitamos del conjunto
+                bag.erase(c); 
+                
+                letras.push_back(c); // añadimos al vector la letra obtenida de forma aleatoria
+                letras_string += c;
+            }
+        }
+        
+        cout << "Las letras son: " << letras_string << endl;
+// ---------------------------------------------------------------------
+
+        soluciones.clear();
+        mejor_solucion = "";
+        int max_score = -1;
+
+// ---------------------------------------------------------------------
+        vector<string> soluciones_globales = solver.getSolutions(letras, true);  // Llamada al Solver para obtener todas las palabras válidas
+
+        for(string word : soluciones_globales) {
+            soluciones.insert(word); // añadimos los resultados al conjunto de soluciones
+            int score = puntosPalabra(word); 
+            
+            
+            if(score > max_score){ // buscamos la palabra de mayor puntuación
+                max_score = score;
+                mejor_solucion = word;
+            } 
+            else if(score == max_score){ // si la puntuacion maxima coincide con la puntuacion de la actual, miramos la longitud
+                if (word.size() > mejor_solucion.size()) // la de mayor longitud gana
+                    mejor_solucion = word;
+            }
+        }
+// ---------------------------------------------------------------------
+
+        cout << "Dime tu solucion: " ;
+        cin >> solucion_user;
+        cout << "La palabra del usuario es: " << solucion_user << endl;
+        
+// ---------------------------------------------------------------------
+        int user_score = 0;
+        bool valido = soluciones.count(solucion_user) > 0;
+
+        if(valido){
+            user_score = solver.puntosPalabra(solucion_user);
+            cout << "Palabra válida. Puntuación: " << user_score << endl;
+        } 
+        else
+            cout << "Palabra inválida (no existe en el diccionario o no se puede formar con las letras disponibles)." << endl;
+        
+        cout << "\nMis soluciones son: " << endl; // soluciones del programa
+        for(string sol : soluciones)
+            cout << sol << "\tPuntuación: " << solver.puntosPalabra(sol) << endl;
+        
+        cout << "Mejor Solucion (Mayor Puntuación): " << mejor_solucion << "\tPuntuación: " << max_score << endl;
+// ---------------------------------------------------------------------
+
+        char result = '\0';
+        do {
+            cout << "¿Quieres seguir jugando [S/N]?";
+            char aux;
+            cin >> aux;
+            if (aux == 'S' || aux == 's')
+                result = 's';
+            else if ( aux == 'N' || aux == 'n')
+                result = 'n';
+        } while (result == '\0');
+
+        seguir_jugando = (result == 's'); // seguir jugando?
+    }
 }
