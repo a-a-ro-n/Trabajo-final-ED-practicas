@@ -35,7 +35,7 @@ class Cifras{
         }
 };*/
 
-
+// CREO QUE ESTO SE PUDE HACER CON UN MAP<INT,STRING> 
 struct operaciones{
    string op;
    int cantidad;
