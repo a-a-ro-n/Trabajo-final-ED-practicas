@@ -33,12 +33,6 @@ class Cifras{
                 S.insert(C[(rand()%(max+1))]);
             }
         }
-
-        
-
- 
-
-
 };*/
 
 
