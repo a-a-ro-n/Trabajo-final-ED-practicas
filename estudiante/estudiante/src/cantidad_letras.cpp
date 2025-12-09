@@ -1,8 +1,8 @@
 #include <fstream>
 #include <iostream>
 #include <cmath>
-#include "../include/dictionary.h"
-#include "../include/letters_set.h"
+#include "dictionary.h"
+#include "letters_set.h"
 
 using namespace std;
 
