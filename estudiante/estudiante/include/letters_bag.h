@@ -5,7 +5,8 @@
 #include <vector>
 #include <stdlib.h>
 #include <time.h>
-#include
+#include <algorithm> // para el find
+#include <string>
 
 using namespace std;
 
@@ -13,17 +14,16 @@ using namespace std;
 class LettersBag {
     private:
         vector<char> bag;       // vector de letras
-        // int cantidad_letras; // recuento de las letras totales de la bolsa (no es necesario ya que existe .size())
     
     public:
-        LettersBag(const LettersSet &);                 // pasamos el numero de letras, y el conjunto dnde estan las letras
+        LettersBag(const LetterSet &);                 // pasamos el numero de letras, y el conjunto dnde estan las letras
         const char getLetter(int) const;                // conseguimos la letra
         // void setLetter(const char);                  // añadimos la letra a la bolsa   (no le veo mucho sentido que podamos añadir letras)
-        const string toString();                        // mostramos por pantalla todas las letras de la bolsa
-        const unsigned size() const;
-        const bool empty() const;
+        const string toString() const;                        // mostramos por pantalla todas las letras de la bolsa
+        unsigned size() const;
+        bool empty() const;
         void clear();
-        void erease(const char);
+        void erase(const char);
         
         class iterator{
             private:
@@ -32,13 +32,14 @@ class LettersBag {
             public:
 
                 iterator();
-                iterator(vector<char>::iterator &);
-                char & operator*() const; // Devuelve una referencia al valor
+                iterator(vector<char>::iterator);
+
+                char & operator*(); // Devuelve una referencia al valor
                 iterator & operator++();
                 bool operator!=(const iterator &) const;
                 bool operator==(const iterator &) const;
 
-                friend LetterBag;
+                friend LettersBag;
         };
     
     iterator begin();
