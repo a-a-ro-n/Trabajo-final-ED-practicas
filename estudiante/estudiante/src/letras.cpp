@@ -20,7 +20,7 @@ int main(int argc, char *argv[]){
     if(argc != 5){
         cerr << "Error. Número de argumentos incorrecto. Se esperan 4 argumentos: \n\t1. Ruta del archivo del diccionario.\n"
              << "\t2. Ruta del archivo de letras (LetterSet).\n\t3. Cantidad de letras a repartir (entero positivo).\n"
-             << "\t4. Modo de juego (L/l para Palabra Más Larga, P/p para Mayor Puntuación).\n";
+             << "\t4. Modo de juego (L para Palabra Más Larga, P para Mayor Puntuación).\n";
 
         return 1;
     }
