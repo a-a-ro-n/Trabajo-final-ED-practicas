@@ -12,6 +12,14 @@ LettersBag::LettersBag(const LetterSet & conjunto){    // pasamos el numero de l
     }
 }
 
+LettersBag::LettersBag(const LetterSet & nombre){
+    ifstream archivo(nombre);
+    char letra;
+
+    while(archivo >> letra){
+        
+}
+
 const char LettersBag::getLetter(int index) const { // conseguimos la letra
     char result = (index > -1 && index < bag.size()) ? bag[index] : '\0';
     return result;
