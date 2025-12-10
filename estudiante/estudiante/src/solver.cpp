@@ -36,26 +36,19 @@ int Solver::puntosPalabra(string palabra){
 }
 
 vector<string> Solver::getSolutions(const vector<char>& available_letters, bool score_game){
-    vector<string> out;  //para que cuando comparemos con la primera posición(linea41) no haya problema
+    vector<string> out;
 
     for(auto it = dictionary.begin(); it != dictionary.end(); ++it){
         if(!score_game){
-            //cout << *it << endl;
             if(poderConstruir(*it, available_letters)){
-                //cout << *it << endl;
                 if( out.empty() || (*it).size() == out[0].size()  ){
-                    //cout << "\t\t\t\t\t\t\tprincipio primer if" << endl;
                     out.push_back(*it);
-                    //cout << "\t\t\t\t\t\t\tprimer if" << endl;
                 }
                 else if((*it).size() > out[0].size() ){    //comparo solo con el primer elemento, ya que si hay más, todos tendrán su mismo tamaño
-                    //cout << "\t\t\t\t\t\t\tprincipio else if" << endl;
                     if(!out.empty()){
                         out.clear();
-                        //cout << "\t\t\t\t\t\t\tif dentro del anterior" <<endl;
                     }
-                    out.push_back(*it); // ----- ERROR AQUI ---- 
-                    //cout << "\t\t\t\t\t\t\telse if" << endl;
+                    out.push_back(*it);
                 }
             }
         } 
