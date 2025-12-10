@@ -103,6 +103,7 @@ void ModoPalabraMasLarga(Solver & solver, const LetterSet & set_config, const in
 
 // ---------------------------------------------------------------------
         vector<string> soluciones_globales = solver.getSolutions(letras, false); // Llamada al Solver para obtener todas las palabras válidas
+        cout << "asignacion de las soluciones globales" << endl;
 
         for(string word : soluciones_globales){
             soluciones.insert(word); // insertamos las soluciones en el conjunto
