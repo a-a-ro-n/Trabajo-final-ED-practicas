@@ -65,3 +65,8 @@ vector<string> Solver::getSolutions(const vector<char>& available_letters, bool 
     }
     return out;
 }
+
+
+bool Solver::existe(string palabra){
+    return (dictionary.find(palabra) != dictionary.end() );
+}
