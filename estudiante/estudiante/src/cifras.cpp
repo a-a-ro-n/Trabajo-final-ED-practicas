@@ -7,33 +7,6 @@
 #include <time.h>
 
 using namespace std;
-/* 
-class Cifras{  
-    private:
-        const vector<int> C = {1,2,3,4,5,6,7,8,9, 10, 25, 50, 75, 100};
-        multiset<int> S;  //uso set porque son más eficientes los borrados e inserciones
-
-            // porque no puebas a hacerlo con un multiset ya que los 
-            // numeros que te pueden salir en el conjunto pueden estar repetidos
-
-        int objetivo;
-
-     //pruebass
-    public:
-        Cifras(){
-            srand(time(NULL));
-            int min = 100;
-            int max = 1000;
-            //genero número aleatorio de 3 cifras
-            objetivo = (rand()%(max-min+1))+min;
-            //cojo 6 números aleatorios de C
-            min = 0;
-            max = 13;
-            for(int i = 0; i < 6; i++){
-                S.insert(C[(rand()%(max+1))]);
-            }
-        }
-};*/
 
 // CREO QUE ESTO SE PUDE HACER CON UN MAP<INT,STRING> 
 struct operaciones{
@@ -50,8 +23,10 @@ vector<solucion> GeneraOperaciones(solucion actual, int n){
    vector<solucion> v;
       solucion suma;
       suma.valor = actual.valor+n;
-      suma.ops.op = actual.ops.op+" "+to_string(actual.valor)+"+"+to_string(n);
-      suma.ops.cantidad = actual.ops.cantidad+1;
+      if(actual.valor != 0){
+        suma.ops.op = actual.ops.op+" "+to_string(actual.valor)+"+"+to_string(n);
+        suma.ops.cantidad = actual.ops.cantidad+1;
+      }
       v.push_back(suma);
    
       solucion resta;
@@ -64,8 +39,10 @@ vector<solucion> GeneraOperaciones(solucion actual, int n){
    
       solucion multiplicacion;
       multiplicacion.valor = actual.valor*n;
-      multiplicacion.ops.op = actual.ops.op+" "+to_string(actual.valor)+"*"+to_string(n);
-      multiplicacion.ops.cantidad = actual.ops.cantidad+1;
+      if(actual.valor != 0){
+        multiplicacion.ops.op = actual.ops.op+" "+to_string(actual.valor)+"*"+to_string(n);
+        multiplicacion.ops.cantidad = actual.ops.cantidad+1;
+      }
       v.push_back(multiplicacion);
    
       solucion division;
@@ -108,6 +85,68 @@ solucion Cifras(multiset<int> S, int objetivo, solucion actual, solucion best){
       }
    }
    return best;
+}
+
+int main(){
+   const vector<int> C = {1,2,3,4,5,6,7,8,9, 10, 25, 50, 75, 100};
+   multiset<int> S;
+   int objetivo;
+   srand(time(NULL));
+   int min = 100;
+   int max = 1000;
+   //genero nÃºmero aleatorio de 3 cifras
+   objetivo = (rand()%(max-min+1))+min;
+   //cojo 6 nÃºmeros aleatorios de C
+   min = 0;
+   max = 13;
+   for(int i = 0; i < 6; i++){
+      S.insert(C[(rand()%(max+1))]);
+   }
+   
+   solucion actual = {0,""};
+   solucion best = actual;
+   
+   cout << "El conjunto es " << endl;
+   for(auto it = S.begin(); it != S.end(); ++it){
+        cout << *it << "\t";
+    }
+
+   cout << "El objetivo es " << objetivo << endl;
+   solucion salida = Cifras(S,objetivo,actual,best);
+
+   int num;
+   int acumulador=0;
+   char operador;
+   bool valido = true;
+   string tu_solucion;
+   cout << "Dime tu solución" << endl;
+   cin >> acumulador;
+   do{
+    cin >> operador;    
+    cin >> num;
+    if((operador!='+' && operador != '-' && operador != '/' && operador != '*') || (S.find(num) == S.end()) || num < 0 || (operador=='-' && acumulador<=num) || (operador=='/' && num ==0) ){
+        valido = false;
+    } else{
+        tu_solucion += "\t"+to_string(acumulador)+operador+to_string(num);
+        if(operador == '+'){
+            acumulador += num;
+        } else if (operador == '-'){
+            acumulador -= num;
+        } else if (operador == '*'){
+            acumulador *= num;
+        } else{
+            acumulador /= num;
+        }
+    }
+   }while(valido);
+    
+    cout << "Has llegado al valor: " << acumulador << "mediante las siguientes operaciones: " << tu_solucion << endl;
+
+
+
+   cout << "La mejor solución es " << salida.valor << ". Para ello, hemos realizado las siguientes operaciones: " << salida.ops.op << endl;
+
+
 }
 
 
