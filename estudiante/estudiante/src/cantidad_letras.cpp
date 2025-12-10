@@ -23,6 +23,12 @@ int main(int argc, char *argv[])
         dic >> diccionario; 
         dic.close();
     }
+    else{
+        cerr << "Error al abrir el archivo del diccionario: " << argv[1] << endl;
+        return 1;
+    }
+
+    LetterSet conjunto(argv[2]); // registramos el conjunto de letras
     
-    
+       
 }
