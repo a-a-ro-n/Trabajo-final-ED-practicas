@@ -17,6 +17,7 @@ LettersBag::LettersBag(const string & nombre){
     char letra;
 
     while(archivo >> letra){
+    }
         
 }
 
