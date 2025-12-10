@@ -16,10 +16,12 @@ class LettersBag {
         vector<char> bag;       // vector de letras
     
     public:
-        LettersBag(const LetterSet &);                 // pasamos el numero de letras, y el conjunto dnde estan las letras
+        LettersBag(const LetterSet &);                  // pasamos el numero de letras, y el conjunto dnde estan las letras
+        LettersBag(const string &);                     // pasamos el numero de letras, y el conjunto dnde estan las letras
+
         const char getLetter(int) const;                // conseguimos la letra
         // void setLetter(const char);                  // añadimos la letra a la bolsa   (no le veo mucho sentido que podamos añadir letras)
-        const string toString() const;                        // mostramos por pantalla todas las letras de la bolsa
+        const string toString() const;                  // mostramos por pantalla todas las letras de la bolsa
         unsigned size() const;
         bool empty() const;
         void clear();
