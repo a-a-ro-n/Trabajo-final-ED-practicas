@@ -39,22 +39,22 @@ vector<string> Solver::getSolutions(const vector<char>& available_letters, bool 
     for(auto it = dictionary.begin(); it != dictionary.end(); ++it){
         if(!score_game){
             if(poderConstruir(*it, available_letters)){
-                if((*it).size() > out[0].size() ){    //comparo solo con el primer elemento, ya que si hay más, todos tendrán su mismo tamaño
+                if((*it).size() == out[0].size() || out.empty() )
+                    out.push_back(*it);
+                else if((*it).size() > out[0].size() ){    //comparo solo con el primer elemento, ya que si hay más, todos tendrán su mismo tamaño
                     if(!out.empty())
                         out.clear();
                     out.push_back(*it);
                 }
-                else if((*it).size() == out[0].size() )
-                    out.push_back(*it);
             }
         } 
         else{
-            if(puntosPalabra(*it) > puntosPalabra(out[0])){
+            if( puntosPalabra(*it) == puntosPalabra(out[0]) || out.empty() )
+                out.push_back(*it);
+            else if(puntosPalabra(*it) > puntosPalabra(out[0])){
                 out.clear();
                 out.push_back(*it);
             } 
-            else if( puntosPalabra(*it) == puntosPalabra(out[0]) )
-                out.push_back(*it);
         }
     }
     return out;
