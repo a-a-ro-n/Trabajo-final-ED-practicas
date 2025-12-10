@@ -13,8 +13,8 @@
 
 using namespace std;
 
-void ModoPalabraMasLarga(Solver & , const LetterSet & , const int , string & , set<string> & , string &);
-void ModoPalabraMayorPuntuacion(Solver & , const LetterSet & , const int , string & , set<string> & , string &);
+void ModoPalabraMasLarga(Solver & , const LetterSet & , /*const*/ int , string & , set<string> & , string &);//los int se pasan por valor sin poner const
+void ModoPalabraMayorPuntuacion(Solver & , const LetterSet & , /*const*/ int , string & , set<string> & , string &);
 
 int main(int argc, char *argv[]){
     if(argc != 5){
@@ -64,7 +64,7 @@ int main(int argc, char *argv[]){
     return 0;
 }
 
-void ModoPalabraMasLarga(Solver & solver, const LetterSet & set_config, const int CANTIDAD_LETRAS, string & solucion_user, set<string> & soluciones, string & mejor_solucion){
+void ModoPalabraMasLarga(Solver & solver, const LetterSet & set_config, /*const*/ int CANTIDAD_LETRAS, string & solucion_user, set<string> & soluciones, string & mejor_solucion){
     srand(time(NULL));
     bool seguir_jugando = true;
 
@@ -105,6 +105,7 @@ void ModoPalabraMasLarga(Solver & solver, const LetterSet & set_config, const in
         vector<string> soluciones_globales = solver.getSolutions(letras, false); // Llamada al Solver para obtener todas las palabras válidas
         cout << "asignacion de las soluciones globales" << endl;
 
+        //getSolutions ya te devuelve el vector con la mejor solución (o varias si hubiese varias con el mismo tamaño). No hace falta recorrer el vector. Cualquier solución es igual de válida
         for(string word : soluciones_globales){
             soluciones.insert(word); // insertamos las soluciones en el conjunto
             
@@ -151,7 +152,7 @@ void ModoPalabraMasLarga(Solver & solver, const LetterSet & set_config, const in
     }
 }
 
-void ModoPalabraMayorPuntuacion(Solver & solver, const LetterSet & set_config, const int CANTIDAD_LETRAS, string & solucion_user, set<string> & soluciones, string & mejor_solucion){
+void ModoPalabraMayorPuntuacion(Solver & solver, const LetterSet & set_config, /*const*/ int CANTIDAD_LETRAS, string & solucion_user, set<string> & soluciones, string & mejor_solucion){
     srand(time(NULL));
     bool seguir_jugando = true;
 
