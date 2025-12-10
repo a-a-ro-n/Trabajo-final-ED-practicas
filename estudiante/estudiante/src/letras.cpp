@@ -91,6 +91,7 @@ void ModoPalabraMasLarga(Solver & solver, const LetterSet & set_config, /*const*
                 
                 letras.push_back(c); // añadimos al vector la letra obtenida de forma aleatoria
                 letras_string += c;
+                letras_string += "\t";
             }
         }
 
@@ -122,13 +123,17 @@ void ModoPalabraMasLarga(Solver & solver, const LetterSet & set_config, /*const*
         cout << "\nLa palabra del usuario es: " << solucion_user << endl;
 
 // ---------------------------------------------------------------------
-        bool valido = (soluciones.find(solucion_user) != soluciones.end()); // si la palabra del usuario está en la lista de soluciones, es válida.
+        bool valido = solver.poderConstruir(solucion_user,letras) && solver.existe(solucion_user);
+        bool optimo = (soluciones.find(solucion_user) != soluciones.end()); // si la palabra del usuario está en la lista de soluciones, es válida.
         
-        if (valido)
+        if (valido){
             cout << "Palabra válida. Longitud: " << solucion_user.size() << endl;
-        else
+            if (!optimo)
+                cout << "Palabra no óptima (existen palabras de mayor longitud)." << endl; 
+        }else
             cout << "Palabra inválida (no existe en el diccionario o no se puede formar con las letras disponibles)." << endl;
         
+       
 
         cout << "\nMis soluciones son: " << endl; // soluciones del programa
         for(string sol : soluciones)
@@ -179,6 +184,7 @@ void ModoPalabraMayorPuntuacion(Solver & solver, const LetterSet & set_config, /
                 
                 letras.push_back(c); // añadimos al vector la letra obtenida de forma aleatoria
                 letras_string += c;
+                letras_string += "\t";
             }
         }
         
@@ -214,14 +220,21 @@ void ModoPalabraMayorPuntuacion(Solver & solver, const LetterSet & set_config, /
         
 // ---------------------------------------------------------------------
         int user_score = 0;
-        bool valido = soluciones.count(solucion_user) > 0;
-
+        bool optimo = soluciones.count(solucion_user) > 0;
+        bool valido = solver.poderConstruir(solucion_user,letras) && solver.existe(solucion_user);
+       
+        
         if(valido){
             user_score = solver.puntosPalabra(solucion_user);
             cout << "Palabra válida. Puntuación: " << user_score << endl;
+            if(!optimo){
+                cout << "Hay soluciones mejores. " << endl;
+            }
         } 
         else
             cout << "Palabra inválida (no existe en el diccionario o no se puede formar con las letras disponibles)." << endl;
+
+        
         
         cout << "\nMis soluciones son: " << endl; // soluciones del programa
         for(string sol : soluciones)
