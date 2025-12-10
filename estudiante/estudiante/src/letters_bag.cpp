@@ -12,7 +12,7 @@ LettersBag::LettersBag(const LetterSet & conjunto){    // pasamos el numero de l
     }
 }
 
-LettersBag::LettersBag(const LetterSet & nombre){
+LettersBag::LettersBag(const string & nombre){
     ifstream archivo(nombre);
     char letra;
 
