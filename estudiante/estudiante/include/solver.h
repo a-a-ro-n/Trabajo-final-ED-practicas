@@ -21,7 +21,7 @@ class Solver{
         vector<string> getSolutions(const vector<char>& available_letters, bool score_game);
         int puntosPalabra(string palabra);
         bool poderConstruir(string palabra, vector<char> available_letters);
-        
+        bool existe(string palabra);
 };
 
 #endif // __SOLVER_H__
