@@ -38,13 +38,19 @@ vector<string> Solver::getSolutions(const vector<char>& available_letters, bool 
 
     for(auto it = dictionary.begin(); it != dictionary.end(); ++it){
         if(!score_game){
+            cout << *it << endl;
             if(poderConstruir(*it, available_letters)){
-                if((*it).size() == out[0].size() || out.empty() )
+                if( out.empty() || (*it).size() == out[0].size()  ){
                     out.push_back(*it);
+                    cout << "\t\t\t\t\t\t\tprimer if" << endl;
+                }
                 else if((*it).size() > out[0].size() ){    //comparo solo con el primer elemento, ya que si hay más, todos tendrán su mismo tamaño
-                    if(!out.empty())
+                    if(!out.empty()){
                         out.clear();
-                    out.push_back(*it);
+                        cout << "\t\t\t\t\t\t\tif dentro del anterior" <<endl;
+                    }
+                    out.push_back(*it); // ----- ERROR AQUI ---- 
+                    cout << "\t\t\t\t\t\t\telse if" << endl;
                 }
             }
         } 
