@@ -1,0 +1,78 @@
+\doxysection{src/cifras.cpp File Reference}
+\hypertarget{cifras_8cpp}{}\label{cifras_8cpp}\index{src/cifras.cpp@{src/cifras.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$climits$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+Include dependency graph for cifras.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structsolucion}{solucion}}
+\begin{DoxyCompactList}\small\item\em Cifras Utilizamos dos funciones y un struct para calcular las operaciones necesarias para llegar a un número aleatorio de 3 cifras generado en el main, utilizando los números de un que se dan. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \mbox{\hyperlink{structsolucion}{solucion}} $>$ \mbox{\hyperlink{cifras_8cpp_a6cab98d2c6f773afdb25accce79b4191}{Genera\+Operaciones}} (\mbox{\hyperlink{structsolucion}{solucion}} actual, int n)
+\begin{DoxyCompactList}\small\item\em Calcula las posibles operaciones que se pueden conseguir, dadas una solución actual y un número que se le debe sumar, restar, multiplicar o dividir. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structsolucion}{solucion}} \mbox{\hyperlink{cifras_8cpp_a7081bd468232f3721b1afd93e4c2d708}{Cifras}} (multiset$<$ int $>$ S, int objetivo, \mbox{\hyperlink{structsolucion}{solucion}} actual, \mbox{\hyperlink{structsolucion}{solucion}} best)
+\begin{DoxyCompactList}\small\item\em Calcula la mejor solución para llegar al objetivo con los números del conjunto S. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{cifras_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{cifras_8cpp_a7081bd468232f3721b1afd93e4c2d708}\label{cifras_8cpp_a7081bd468232f3721b1afd93e4c2d708} 
+\index{cifras.cpp@{cifras.cpp}!Cifras@{Cifras}}
+\index{Cifras@{Cifras}!cifras.cpp@{cifras.cpp}}
+\doxysubsubsection{\texorpdfstring{Cifras()}{Cifras()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsolucion}{solucion}} Cifras (\begin{DoxyParamCaption}\item[{multiset$<$ int $>$}]{S,  }\item[{int}]{objetivo,  }\item[{\mbox{\hyperlink{structsolucion}{solucion}}}]{actual,  }\item[{\mbox{\hyperlink{structsolucion}{solucion}}}]{best }\end{DoxyParamCaption})}
+
+
+
+Calcula la mejor solución para llegar al objetivo con los números del conjunto S. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em S} & es el conjunto de números con los que hay que operar para obtener la solución \\
+\hline
+{\em objetivo} & es el número que hay que alcanzar o acercarse al máximo \\
+\hline
+{\em actual} & es la solucion actual, sobre la que seguiremos operando para llegar a la mejor \\
+\hline
+{\em best} & es la mejor solución hasta el momento \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+devuelve una solucion con el valor exacto con el mínimo número de operaciones o la solución más cercana (también con el mínimo de operaciones) 
+\end{DoxyReturn}
+\Hypertarget{cifras_8cpp_a6cab98d2c6f773afdb25accce79b4191}\label{cifras_8cpp_a6cab98d2c6f773afdb25accce79b4191} 
+\index{cifras.cpp@{cifras.cpp}!GeneraOperaciones@{GeneraOperaciones}}
+\index{GeneraOperaciones@{GeneraOperaciones}!cifras.cpp@{cifras.cpp}}
+\doxysubsubsection{\texorpdfstring{GeneraOperaciones()}{GeneraOperaciones()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{structsolucion}{solucion}} $>$ Genera\+Operaciones (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsolucion}{solucion}}}]{actual,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Calcula las posibles operaciones que se pueden conseguir, dadas una solución actual y un número que se le debe sumar, restar, multiplicar o dividir. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em actual} & es la solución parcial \\
+\hline
+{\em n} & es el número que operamos con actual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+un vector de soluciones. Cada elemento será actual más/menos/por/entre n, según las operaciones que se puedan hacer (p.\+e. no puede haber números negativos) 
+\end{DoxyReturn}
+\Hypertarget{cifras_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{cifras_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{cifras.cpp@{cifras.cpp}!main@{main}}
+\index{main@{main}!cifras.cpp@{cifras.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+@\+Genera un multiset S de 6 elementos, escogidos al azar del conjunto C. Genera un número aleatorio de tres cifras al que hay que llegar. Pregunta al usuario su solución. Esta solución no tiene usa paréntesis, hace las operaciones de izquierda a derecha hasta que hay un valor inválido (al usuario se le recomienda usar ..). Después calcula con Cifras, la mejor solución y la muestra por pantalla 

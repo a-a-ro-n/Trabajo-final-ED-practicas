@@ -1,0 +1,309 @@
+\begin{theindex}
+
+  \item {\texorpdfstring{$\sim$}{\string~}Dictionary}
+    \subitem {Dictionary}, \hyperpage{10}
+
+  \indexspace
+
+  \item {bag}
+    \subitem {LettersBag}, \hyperpage{24}
+  \item {begin}
+    \subitem {Dictionary}, \hyperpage{10}
+    \subitem {LettersBag}, \hyperpage{22}
+    \subitem {LetterSet}, \hyperpage{25}
+
+  \indexspace
+
+  \item {cantidad}
+    \subitem {solucion}, \hyperpage{27}
+  \item {charSet}
+    \subitem {LetterSet}, \hyperpage{27}
+  \item {Cifras}
+    \subitem {cifras.cpp}, \hyperpage{39}
+  \item {cifras.cpp}
+    \subitem {Cifras}, \hyperpage{39}
+    \subitem {GeneraOperaciones}, \hyperpage{39}
+    \subitem {main}, \hyperpage{39}
+  \item {clear}
+    \subitem {Dictionary}, \hyperpage{10}
+    \subitem {LettersBag}, \hyperpage{22}
+  \item {const\_iterator}
+    \subitem {Dictionary::const\_iterator}, \hyperpage{6}
+    \subitem {LetterSet::const\_iterator}, \hyperpage{7}
+
+  \indexspace
+
+  \item {Dictionary}, \hyperpage{9}
+    \subitem {\texorpdfstring{$\sim$}{\string~}Dictionary}, 
+		\hyperpage{10}
+    \subitem {begin}, \hyperpage{10}
+    \subitem {clear}, \hyperpage{10}
+    \subitem {Dictionary}, \hyperpage{10}
+    \subitem {Dictionary::const\_iterator}, \hyperpage{6}
+    \subitem {Dictionary::iterator}, \hyperpage{16}
+    \subitem {empty}, \hyperpage{10}
+    \subitem {end}, \hyperpage{11}
+    \subitem {erase}, \hyperpage{11}
+    \subitem {exists}, \hyperpage{11}
+    \subitem {find}, \hyperpage{12}
+    \subitem {getOccurrences}, \hyperpage{12}
+    \subitem {getTotalLetters}, \hyperpage{12}
+    \subitem {getWordsLength}, \hyperpage{12}
+    \subitem {insert}, \hyperpage{12}
+    \subitem {operator$<$$<$}, \hyperpage{13}
+    \subitem {operator$>$$>$}, \hyperpage{14}
+    \subitem {range\_prefix}, \hyperpage{13}
+    \subitem {size}, \hyperpage{13}
+    \subitem {words}, \hyperpage{14}
+  \item {dictionary}
+    \subitem {Solver}, \hyperpage{31}
+  \item {dictionary.cpp}
+    \subitem {operator$<$$<$}, \hyperpage{40}
+    \subitem {operator$>$$>$}, \hyperpage{40}
+  \item {Dictionary::const\_iterator}, \hyperpage{5}
+    \subitem {const\_iterator}, \hyperpage{6}
+    \subitem {Dictionary}, \hyperpage{6}
+    \subitem {it}, \hyperpage{7}
+    \subitem {operator!=}, \hyperpage{6}
+    \subitem {operator++}, \hyperpage{6}
+    \subitem {operator==}, \hyperpage{6}
+    \subitem {operator\texorpdfstring{$\ast$}{*}}, \hyperpage{6}
+  \item {Dictionary::iterator}, \hyperpage{15}
+    \subitem {Dictionary}, \hyperpage{16}
+    \subitem {it}, \hyperpage{16}
+    \subitem {iterator}, \hyperpage{15}
+    \subitem {operator!=}, \hyperpage{16}
+    \subitem {operator++}, \hyperpage{16}
+    \subitem {operator==}, \hyperpage{16}
+    \subitem {operator\texorpdfstring{$\ast$}{*}}, \hyperpage{16}
+
+  \indexspace
+
+  \item {empty}
+    \subitem {Dictionary}, \hyperpage{10}
+    \subitem {LettersBag}, \hyperpage{23}
+    \subitem {LetterSet}, \hyperpage{26}
+  \item {end}
+    \subitem {Dictionary}, \hyperpage{11}
+    \subitem {LettersBag}, \hyperpage{23}
+    \subitem {LetterSet}, \hyperpage{26}
+  \item {erase}
+    \subitem {Dictionary}, \hyperpage{11}
+    \subitem {LettersBag}, \hyperpage{23}
+  \item {existe}
+    \subitem {Solver}, \hyperpage{29}
+  \item {exists}
+    \subitem {Dictionary}, \hyperpage{11}
+
+  \indexspace
+
+  \item {find}
+    \subitem {Dictionary}, \hyperpage{12}
+
+  \indexspace
+
+  \item {GeneraOperaciones}
+    \subitem {cifras.cpp}, \hyperpage{39}
+  \item {getLetter}
+    \subitem {LettersBag}, \hyperpage{23}
+  \item {getLetterInfo}
+    \subitem {LetterSet}, \hyperpage{26}
+  \item {getOccurrences}
+    \subitem {Dictionary}, \hyperpage{12}
+  \item {getSolutions}
+    \subitem {Solver}, \hyperpage{29}
+  \item {getTotalLetters}
+    \subitem {Dictionary}, \hyperpage{12}
+  \item {getWordsLength}
+    \subitem {Dictionary}, \hyperpage{12}
+
+  \indexspace
+
+  \item {include/dictionary.h}, \hyperpage{33}
+  \item {include/letters\_bag.h}, \hyperpage{34, 35}
+  \item {include/letters\_set.h}, \hyperpage{36}
+  \item {include/solver.h}, \hyperpage{37}
+  \item {insert}
+    \subitem {Dictionary}, \hyperpage{12}
+  \item {it}
+    \subitem {Dictionary::const\_iterator}, \hyperpage{7}
+    \subitem {Dictionary::iterator}, \hyperpage{16}
+    \subitem {LettersBag::iterator}, \hyperpage{18}
+    \subitem {LetterSet::const\_iterator}, \hyperpage{8}
+    \subitem {LetterSet::iterator}, \hyperpage{20}
+  \item {iterator}
+    \subitem {Dictionary::iterator}, \hyperpage{15}
+    \subitem {LettersBag::iterator}, \hyperpage{17}
+    \subitem {LetterSet::iterator}, \hyperpage{19}
+
+  \indexspace
+
+  \item {letras.cpp}
+    \subitem {main}, \hyperpage{41}
+    \subitem {ModoPalabraMasLarga}, \hyperpage{41}
+    \subitem {ModoPalabraMayorPuntuacion}, \hyperpage{41}
+  \item {LetterInfo}, \hyperpage{20}
+    \subitem {LetterInfo}, \hyperpage{20}
+    \subitem {repetitions}, \hyperpage{21}
+    \subitem {score}, \hyperpage{21}
+  \item {LettersBag}, \hyperpage{21}
+    \subitem {bag}, \hyperpage{24}
+    \subitem {begin}, \hyperpage{22}
+    \subitem {clear}, \hyperpage{22}
+    \subitem {empty}, \hyperpage{23}
+    \subitem {end}, \hyperpage{23}
+    \subitem {erase}, \hyperpage{23}
+    \subitem {getLetter}, \hyperpage{23}
+    \subitem {LettersBag}, \hyperpage{22}
+    \subitem {LettersBag::iterator}, \hyperpage{18}
+    \subitem {size}, \hyperpage{24}
+    \subitem {toString}, \hyperpage{24}
+  \item {LettersBag::iterator}, \hyperpage{16}
+    \subitem {it}, \hyperpage{18}
+    \subitem {iterator}, \hyperpage{17}
+    \subitem {LettersBag}, \hyperpage{18}
+    \subitem {operator!=}, \hyperpage{17}
+    \subitem {operator++}, \hyperpage{17}
+    \subitem {operator==}, \hyperpage{18}
+    \subitem {operator\texorpdfstring{$\ast$}{*}}, \hyperpage{17}
+  \item {LetterSet}, \hyperpage{24}
+    \subitem {begin}, \hyperpage{25}
+    \subitem {charSet}, \hyperpage{27}
+    \subitem {empty}, \hyperpage{26}
+    \subitem {end}, \hyperpage{26}
+    \subitem {getLetterInfo}, \hyperpage{26}
+    \subitem {LetterSet}, \hyperpage{25}
+    \subitem {LetterSet::const\_iterator}, \hyperpage{8}
+    \subitem {LetterSet::iterator}, \hyperpage{20}
+    \subitem {size}, \hyperpage{26}
+  \item {LetterSet::const\_iterator}, \hyperpage{7}
+    \subitem {const\_iterator}, \hyperpage{7}
+    \subitem {it}, \hyperpage{8}
+    \subitem {LetterSet}, \hyperpage{8}
+    \subitem {operator!=}, \hyperpage{8}
+    \subitem {operator++}, \hyperpage{8}
+    \subitem {operator-\/$>$}, \hyperpage{8}
+    \subitem {operator==}, \hyperpage{8}
+    \subitem {operator\texorpdfstring{$\ast$}{*}}, \hyperpage{8}
+  \item {LetterSet::iterator}, \hyperpage{18}
+    \subitem {it}, \hyperpage{20}
+    \subitem {iterator}, \hyperpage{19}
+    \subitem {LetterSet}, \hyperpage{20}
+    \subitem {operator!=}, \hyperpage{19}
+    \subitem {operator++}, \hyperpage{19}
+    \subitem {operator-\/$>$}, \hyperpage{19}
+    \subitem {operator==}, \hyperpage{19}
+    \subitem {operator\texorpdfstring{$\ast$}{*}}, \hyperpage{19}
+  \item {ls}
+    \subitem {Solver}, \hyperpage{31}
+
+  \indexspace
+
+  \item {main}
+    \subitem {cifras.cpp}, \hyperpage{39}
+    \subitem {letras.cpp}, \hyperpage{41}
+    \subitem {testdiccionario.cpp}, \hyperpage{42}
+  \item {ModoPalabraMasLarga}
+    \subitem {letras.cpp}, \hyperpage{41}
+  \item {ModoPalabraMayorPuntuacion}
+    \subitem {letras.cpp}, \hyperpage{41}
+
+  \indexspace
+
+  \item {op}
+    \subitem {solucion}, \hyperpage{27}
+  \item {operator!=}
+    \subitem {Dictionary::const\_iterator}, \hyperpage{6}
+    \subitem {Dictionary::iterator}, \hyperpage{16}
+    \subitem {LettersBag::iterator}, \hyperpage{17}
+    \subitem {LetterSet::const\_iterator}, \hyperpage{8}
+    \subitem {LetterSet::iterator}, \hyperpage{19}
+  \item {operator$<$$<$}
+    \subitem {Dictionary}, \hyperpage{13}
+    \subitem {dictionary.cpp}, \hyperpage{40}
+  \item {operator$>$$>$}
+    \subitem {Dictionary}, \hyperpage{14}
+    \subitem {dictionary.cpp}, \hyperpage{40}
+  \item {operator++}
+    \subitem {Dictionary::const\_iterator}, \hyperpage{6}
+    \subitem {Dictionary::iterator}, \hyperpage{16}
+    \subitem {LettersBag::iterator}, \hyperpage{17}
+    \subitem {LetterSet::const\_iterator}, \hyperpage{8}
+    \subitem {LetterSet::iterator}, \hyperpage{19}
+  \item {operator-\/$>$}
+    \subitem {LetterSet::const\_iterator}, \hyperpage{8}
+    \subitem {LetterSet::iterator}, \hyperpage{19}
+  \item {operator==}
+    \subitem {Dictionary::const\_iterator}, \hyperpage{6}
+    \subitem {Dictionary::iterator}, \hyperpage{16}
+    \subitem {LettersBag::iterator}, \hyperpage{18}
+    \subitem {LetterSet::const\_iterator}, \hyperpage{8}
+    \subitem {LetterSet::iterator}, \hyperpage{19}
+  \item {operator\texorpdfstring{$\ast$}{*}}
+    \subitem {Dictionary::const\_iterator}, \hyperpage{6}
+    \subitem {Dictionary::iterator}, \hyperpage{16}
+    \subitem {LettersBag::iterator}, \hyperpage{17}
+    \subitem {LetterSet::const\_iterator}, \hyperpage{8}
+    \subitem {LetterSet::iterator}, \hyperpage{19}
+
+  \indexspace
+
+  \item {poderConstruir}
+    \subitem {Solver}, \hyperpage{29}
+  \item {puntosPalabra}
+    \subitem {Solver}, \hyperpage{31}
+
+  \indexspace
+
+  \item {range\_prefix}
+    \subitem {Dictionary}, \hyperpage{13}
+  \item {repetitions}
+    \subitem {LetterInfo}, \hyperpage{21}
+
+  \indexspace
+
+  \item {score}
+    \subitem {LetterInfo}, \hyperpage{21}
+  \item {size}
+    \subitem {Dictionary}, \hyperpage{13}
+    \subitem {LettersBag}, \hyperpage{24}
+    \subitem {LetterSet}, \hyperpage{26}
+  \item {solucion}, \hyperpage{27}
+    \subitem {cantidad}, \hyperpage{27}
+    \subitem {op}, \hyperpage{27}
+    \subitem {valor}, \hyperpage{27}
+  \item {Solver}, \hyperpage{28}
+    \subitem {dictionary}, \hyperpage{31}
+    \subitem {existe}, \hyperpage{29}
+    \subitem {getSolutions}, \hyperpage{29}
+    \subitem {ls}, \hyperpage{31}
+    \subitem {poderConstruir}, \hyperpage{29}
+    \subitem {puntosPalabra}, \hyperpage{31}
+    \subitem {Solver}, \hyperpage{28}
+  \item {src/cantidad\_letras.cpp}, \hyperpage{38}
+  \item {src/cifras.cpp}, \hyperpage{38}
+  \item {src/dictionary.cpp}, \hyperpage{40}
+  \item {src/letras.cpp}, \hyperpage{41}
+  \item {src/letters\_bag.cpp}, \hyperpage{42}
+  \item {src/letters\_set.cpp}, \hyperpage{42}
+  \item {src/solver.cpp}, \hyperpage{42}
+  \item {src/testdiccionario.cpp}, \hyperpage{42}
+
+  \indexspace
+
+  \item {testdiccionario.cpp}
+    \subitem {main}, \hyperpage{42}
+  \item {toString}
+    \subitem {LettersBag}, \hyperpage{24}
+
+  \indexspace
+
+  \item {valor}
+    \subitem {solucion}, \hyperpage{27}
+
+  \indexspace
+
+  \item {words}
+    \subitem {Dictionary}, \hyperpage{14}
+
+\end{theindex}
