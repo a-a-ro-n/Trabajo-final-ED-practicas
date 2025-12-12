@@ -16,7 +16,7 @@ struct letra{
 
 int main(int argc, char *argv[])
 {
-    if(argc != 4){
+    if(argc != 4){  
       cout << "Los parametros son: " << endl;
       cout << "1.- El fichero con el diccionario" << endl;
       cout << "2.- El fichero con las letras" << endl;
