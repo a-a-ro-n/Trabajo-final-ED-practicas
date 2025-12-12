@@ -9,6 +9,9 @@
 
 using namespace std;
 
+/**
+ * @brief Estructura para almacenar información sobre una letra
+ */
 struct LetterInfo{
   unsigned int repetitions;
   unsigned int score;
@@ -27,7 +30,12 @@ struct LetterInfo{
   LetterInfo(unsigned int reps, unsigned int score): repetitions(reps), score(score){};
 };
 
-
+/**
+ * @brief TDA LetterSet
+ *
+ * Esta clase gestiona un conjunto de letras, asociando a cada carácter
+ * su información de juego (repeticiones permitidas y puntuación).
+ */
 class LetterSet{
     private:
         map<char, LetterInfo> charSet;  // mapeado de las letras
@@ -40,17 +48,31 @@ class LetterSet{
          */
         LetterSet(const string &); // abriremos el archivo para la extraccion de las letras
 
-        /*
-         * @bief getter de la letra
+        /**
+         * @brief Getter de la información de la letra
          *
-         * @param le pasamos el char letra para obtener su informacion
-         * @return Devuelve la informacion de la letra en el conjunto
+         * @param val Carácter del cual se quiere obtener la información
+         * @return Devuelve la informacion (LetterInfo) de la letra en el conjunto
          */
         const LetterInfo getLetterInfo(char) const;
+        
         // void setLetter(map<char,LetterInfo>); // inecesaria implementacion
+        
+        /**
+         * @brief Comprueba si el conjunto está vacío
+         * @return true si no hay letras, false en caso contrario
+         */
         bool empty() const;
+
+        /**
+         * @brief Obtiene el tamaño del conjunto (número de tipos de letras distintas)
+         * @return Entero con el tamaño
+         */
         unsigned size() const;
         
+        /**
+         * @brief Iterador para recorrer el conjunto de letras
+         */
         class iterator {
             private:
                 map<char, LetterInfo>::iterator it;
@@ -70,7 +92,10 @@ class LetterSet{
                 friend class LetterSet; 
         };
 
-        class const_iterator {
+        /**
+         * @brief Iterador constante para recorrer el conjunto de letras
+         */
+        class const_iterator { // me salio un error y por eso lo implemente
             private:
                 map<char, LetterInfo>::const_iterator it;
 
@@ -89,10 +114,24 @@ class LetterSet{
                 friend class LetterSet; 
         };
     
+        /**
+         * @brief Devuelve un iterador al inicio del conjunto
+         */
         iterator begin();
+
+        /**
+         * @brief Devuelve un iterador al final del conjunto
+         */
         iterator end();
 
+        /**
+         * @brief Devuelve un iterador constante al inicio del conjunto
+         */
         const_iterator begin() const;
+        
+        /**
+         * @brief Devuelve un iterador constante al final del conjunto
+         */
         const_iterator end() const;
 };
 
