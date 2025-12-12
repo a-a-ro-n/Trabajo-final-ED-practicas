@@ -154,7 +154,16 @@ int main(){
         primero_valido = false;
         cout << "Primer elemento erróneo" << endl;
     } else{
-        S.erase(acumulador);
+        //si pongo solo S.erase borra todos los repetidos también
+        for(auto it = S.begin(); it != S.end();){
+            if(*it == acumulador){
+                auto it2 = it;
+                it = S.erase(it2);
+                break;
+            }else{
+                ++it;
+            }
+        }
         while(valido){
             cin >> operador;    
             cin >> num;
@@ -162,7 +171,15 @@ int main(){
                 valido = false;
             } else{
                 tu_solucion += "\t"+to_string(acumulador)+operador+to_string(num);
-                S.erase(num);
+                for(auto it = S.begin(); it != S.end();){
+                    if(*it == num){
+                        auto it2 = it;
+                        it = S.erase(it2);
+                        break;
+                    }else{
+                        ++it;
+                    }
+                }
                 if(operador == '+'){
                     acumulador += num;
                 } else if (operador == '-'){
