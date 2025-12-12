@@ -14,7 +14,7 @@ bool Solver::poderConstruir(string palabra, vector<char> available_letters){
     bool esta = true;
     for(int i = 0; i < palabra.size() && esta; ++i){
         esta = false;
-        for(auto it = available_letters.begin(); it != available_letters.end(); ){
+        for(auto it = available_letters.begin(); it != available_letters.end() && !esta; ){
             if(palabra[i] == *it){
                 esta = true;
                 auto it2 = it;
