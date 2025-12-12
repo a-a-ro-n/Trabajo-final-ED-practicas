@@ -36,12 +36,6 @@ LetterSet::LetterSet(const string & nombre){ // abriremos el archivo para la ext
     }
 }
 
-/*
- * @bief getter de la letra
- *
- * @param le pasamos el char letra para obtener su informacion
- * @return Devuelve la informacion de la letra en el conjunto
- */
 const LetterInfo LetterSet::getLetterInfo(char letter) const{
     auto it = charSet.find(letter); // primero buscamos si la letra esta en el conjunto
 
