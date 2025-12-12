@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
             min = porcentaje;
         }
         ++i;
-    }
+    }  
     min_log = -log10(min);
     salida << "#Letra\tCantidad\tPuntos" << endl;
     for(auto it = v.begin(); it != v.end(); ++it){
