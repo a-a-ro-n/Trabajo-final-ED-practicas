@@ -1,0 +1,163 @@
+\doxysection{Solver Class Reference}
+\hypertarget{classSolver}{}\label{classSolver}\index{Solver@{Solver}}
+
+
+TDA \doxylink{classSolver}{Solver}.  
+
+
+
+
+{\ttfamily \#include $<$solver.\+h$>$}
+
+
+
+Collaboration diagram for Solver\+:
+% FIG 0
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSolver_a61e5943743690cd4603945e8748bb12d}{Solver}} (const \mbox{\hyperlink{classDictionary}{Dictionary}} \&dic, const \mbox{\hyperlink{classLetterSet}{Letter\+Set}} \&letter)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \doxylink{classSolver}{Solver}. \end{DoxyCompactList}\item 
+vector$<$ string $>$ \mbox{\hyperlink{classSolver_ada0d3ddf9fac9d6ad8d543717fd59bfa}{get\+Solutions}} (const vector$<$ char $>$ \&available\+\_\+letters, bool score\+\_\+game)
+\begin{DoxyCompactList}\small\item\em Obtiene las soluciones posibles para una partida. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSolver_a5902889c4e5b774e5d9ded318840e068}{puntos\+Palabra}} (string palabra)
+\begin{DoxyCompactList}\small\item\em Calcula la puntuación de una palabra. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSolver_ab0fa8e22d212945f0cdc87035989df59}{poder\+Construir}} (string palabra, vector$<$ char $>$ available\+\_\+letters)
+\begin{DoxyCompactList}\small\item\em Comprueba si una palabra se puede construir con un conjunto de letras. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSolver_a1fb71fa0ab6f0618ce3eed0e0d745806}{existe}} (string palabra)
+\begin{DoxyCompactList}\small\item\em Comprueba si una palabra existe en el diccionario del \doxylink{classSolver}{Solver}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDictionary}{Dictionary}} \mbox{\hyperlink{classSolver_a360283bf9f036ee1b377ece1bc5224f9}{dictionary}}
+\item 
+\mbox{\hyperlink{classLetterSet}{Letter\+Set}} \mbox{\hyperlink{classSolver_ab1449c71382bf9dde4377c3ca2c42efa}{ls}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+TDA \doxylink{classSolver}{Solver}. 
+
+Esta clase se encarga de resolver el juego, encontrando soluciones válidas en el diccionario a partir de un conjunto de letras disponibles. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classSolver_a61e5943743690cd4603945e8748bb12d}\label{classSolver_a61e5943743690cd4603945e8748bb12d} 
+\index{Solver@{Solver}!Solver@{Solver}}
+\index{Solver@{Solver}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{Solver()}{Solver()}}
+{\footnotesize\ttfamily Solver\+::\+Solver (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDictionary}{Dictionary}} \&}]{dic,  }\item[{const \mbox{\hyperlink{classLetterSet}{Letter\+Set}} \&}]{letter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de la clase \doxylink{classSolver}{Solver}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dic} & Diccionario con las palabras válidas \\
+\hline
+{\em letter} & Conjunto de letras con sus puntuaciones \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSolver_a1fb71fa0ab6f0618ce3eed0e0d745806}\label{classSolver_a1fb71fa0ab6f0618ce3eed0e0d745806} 
+\index{Solver@{Solver}!existe@{existe}}
+\index{existe@{existe}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{existe()}{existe()}}
+{\footnotesize\ttfamily bool Solver\+::existe (\begin{DoxyParamCaption}\item[{string}]{palabra }\end{DoxyParamCaption})}
+
+
+
+Comprueba si una palabra existe en el diccionario del \doxylink{classSolver}{Solver}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em palabra} & Palabra a buscar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si existe, false si no 
+\end{DoxyReturn}
+\Hypertarget{classSolver_ada0d3ddf9fac9d6ad8d543717fd59bfa}\label{classSolver_ada0d3ddf9fac9d6ad8d543717fd59bfa} 
+\index{Solver@{Solver}!getSolutions@{getSolutions}}
+\index{getSolutions@{getSolutions}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{getSolutions()}{getSolutions()}}
+{\footnotesize\ttfamily vector$<$ string $>$ Solver\+::get\+Solutions (\begin{DoxyParamCaption}\item[{const vector$<$ char $>$ \&}]{available\+\_\+letters,  }\item[{bool}]{score\+\_\+game }\end{DoxyParamCaption})}
+
+
+
+Obtiene las soluciones posibles para una partida. 
+
+
+\begin{DoxyItemize}
+\item Busca palabras en el diccionario que se puedan formar con las letras disponibles. 
+\begin{DoxyParams}{Parameters}
+{\em available\+\_\+letters} & Vector con las letras disponibles para jugar \\
+\hline
+{\em score\+\_\+game} & Booleano\+: true para jugar por puntuación, false para jugar por longitud \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector de strings con las palabras encontradas que cumplen los criterios 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\Hypertarget{classSolver_ab0fa8e22d212945f0cdc87035989df59}\label{classSolver_ab0fa8e22d212945f0cdc87035989df59} 
+\index{Solver@{Solver}!poderConstruir@{poderConstruir}}
+\index{poderConstruir@{poderConstruir}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{poderConstruir()}{poderConstruir()}}
+{\footnotesize\ttfamily bool Solver\+::poder\+Construir (\begin{DoxyParamCaption}\item[{string}]{palabra,  }\item[{vector$<$ char $>$}]{available\+\_\+letters }\end{DoxyParamCaption})}
+
+
+
+Comprueba si una palabra se puede construir con un conjunto de letras. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em palabra} & La palabra candidata \\
+\hline
+{\em available\+\_\+letters} & Las letras disponibles en la mano \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si es posible construirla, false en caso contrario 
+\end{DoxyReturn}
+\Hypertarget{classSolver_a5902889c4e5b774e5d9ded318840e068}\label{classSolver_a5902889c4e5b774e5d9ded318840e068} 
+\index{Solver@{Solver}!puntosPalabra@{puntosPalabra}}
+\index{puntosPalabra@{puntosPalabra}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{puntosPalabra()}{puntosPalabra()}}
+{\footnotesize\ttfamily int Solver\+::puntos\+Palabra (\begin{DoxyParamCaption}\item[{string}]{palabra }\end{DoxyParamCaption})}
+
+
+
+Calcula la puntuación de una palabra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em palabra} & Palabra a evaluar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Puntuación total basada en el \doxylink{classLetterSet}{Letter\+Set} asociado 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classSolver_a360283bf9f036ee1b377ece1bc5224f9}\label{classSolver_a360283bf9f036ee1b377ece1bc5224f9} 
+\index{Solver@{Solver}!dictionary@{dictionary}}
+\index{dictionary@{dictionary}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{dictionary}{dictionary}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDictionary}{Dictionary}} Solver\+::dictionary\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classSolver_ab1449c71382bf9dde4377c3ca2c42efa}\label{classSolver_ab1449c71382bf9dde4377c3ca2c42efa} 
+\index{Solver@{Solver}!ls@{ls}}
+\index{ls@{ls}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{ls}{ls}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLetterSet}{Letter\+Set}} Solver\+::ls\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{solver_8h}{solver.\+h}}\item 
+src/\mbox{\hyperlink{solver_8cpp}{solver.\+cpp}}\end{DoxyCompactItemize}

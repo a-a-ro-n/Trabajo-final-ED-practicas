@@ -1,0 +1,358 @@
+\doxysection{Dictionary Class Reference}
+\hypertarget{classDictionary}{}\label{classDictionary}\index{Dictionary@{Dictionary}}
+
+
+{\ttfamily \#include $<$dictionary.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classDictionary_1_1const__iterator}{const\+\_\+iterator}}
+\begin{DoxyCompactList}\small\item\em Iterador constante del diccionario. Obtiene las palabras ordenadas alfabéticamente. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classDictionary_1_1iterator}{iterator}}
+\begin{DoxyCompactList}\small\item\em Iterador del diccionario. Obtiene las palabras ordenadas alfabéticamente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDictionary_aee8d612bc9d323c38faba045ba384b8b}{Dictionary}} ()
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDictionary_aa36f24073d9c9001768517aa2322cb82}{\texorpdfstring{$\sim$}{\string~}\+Dictionary}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDictionary_a2d54b74d14335da04ad9d64e49536d9a}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Limpia el \doxylink{classDictionary}{Dictionary}. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classDictionary_ac2456f6eb0cb7f997acc69eac47e2244}{size}} () const
+\begin{DoxyCompactList}\small\item\em Tamaño del diccionario. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDictionary_ab45dc9793957e562ccc104150fc7af8f}{empty}} () const
+\begin{DoxyCompactList}\small\item\em Comprueba si el diccionario está vacio. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDictionary_a00667b5bf947862dece75bb78171e89c}{exists}} (const string \&val)
+\begin{DoxyCompactList}\small\item\em Indica si una palabra esta en el diccionario o no. Este método comprueba si una determinada palabra se encuentra o no en el dicccionario. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDictionary_ade0c02d2c1f45e826a87f52c4f1d0ee6}{erase}} (const string \&val)
+\begin{DoxyCompactList}\small\item\em Elimina una palabra del diccionario. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classDictionary_a98251e5b46c3d9be634d77f72c3faa66}{get\+Occurrences}} (const char c) const
+\begin{DoxyCompactList}\small\item\em Indica el numero de apariciones de una letra. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classDictionary_ac3b8bd67f0a45918cfe868e9e62f2322}{get\+Total\+Letters}} () const
+\begin{DoxyCompactList}\small\item\em Indica el numero totales de letras. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDictionary_1_1iterator}{iterator}} \mbox{\hyperlink{classDictionary_a7dd069387999c1bfc4ecc5ee5c223752}{find}} (const string \&w)
+\begin{DoxyCompactList}\small\item\em Indica si una palabra esta en el diccionario. \end{DoxyCompactList}\item 
+vector$<$ string $>$ \mbox{\hyperlink{classDictionary_abc5ded9cf1d5191e27d52745a81970b0}{get\+Words\+Length}} (int longitud)
+\begin{DoxyCompactList}\small\item\em Obtiene todas las palabras de una longitud param longitud\+: valor de longitud de la palabras a devolver. \end{DoxyCompactList}\item 
+pair$<$ \mbox{\hyperlink{classDictionary_1_1iterator}{iterator}}, bool $>$ \mbox{\hyperlink{classDictionary_a66ab5a069ddd3a6aa86e89217c28c674}{insert}} (const string \&val)
+\begin{DoxyCompactList}\small\item\em Inserta una palabra en el diccionario. \end{DoxyCompactList}\item 
+pair$<$ \mbox{\hyperlink{classDictionary_1_1iterator}{iterator}}, \mbox{\hyperlink{classDictionary_1_1iterator}{iterator}} $>$ \mbox{\hyperlink{classDictionary_abd31218bff8265624ebdf3d6193020fc}{range\+\_\+prefix}} (const string \&val)
+\begin{DoxyCompactList}\small\item\em Busca un las palabras con un prefijo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDictionary_1_1iterator}{iterator}} \mbox{\hyperlink{classDictionary_a574468b2073aa0198a458715fe0e7791}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el iterador apuntando a la primera palabra del diccionario. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDictionary_1_1const__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classDictionary_accf6efc475acfb75090e6da9bf1559bc}{begin}} () const
+\item 
+\mbox{\hyperlink{classDictionary_1_1iterator}{iterator}} \mbox{\hyperlink{classDictionary_a78307ae7b05370023477c53821424d3d}{end}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el iterador apuntando al final del diccionario. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDictionary_1_1const__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classDictionary_a45568845d4278a236d2dcf08e3ead002}{end}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+set$<$ string $>$ \mbox{\hyperlink{classDictionary_a13a851d97d7f42b4d3002719bd7edace}{words}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+istream \& \mbox{\hyperlink{classDictionary_a045316b2a6550b776d5b2cb21824827b}{operator$>$$>$}} (istream \&is, \mbox{\hyperlink{classDictionary}{Dictionary}} \&dic)
+\begin{DoxyCompactList}\small\item\em Sobrecarga del operador de entrada. \end{DoxyCompactList}\item 
+ostream \& \mbox{\hyperlink{classDictionary_a558ee41aec5fad2f9ba2071c39cef580}{operator$<$$<$}} (ostream \&os, const \mbox{\hyperlink{classDictionary}{Dictionary}} \&dic)
+\begin{DoxyCompactList}\small\item\em Sobrecarga del operador de salida. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classDictionary_aee8d612bc9d323c38faba045ba384b8b}\label{classDictionary_aee8d612bc9d323c38faba045ba384b8b} 
+\index{Dictionary@{Dictionary}!Dictionary@{Dictionary}}
+\index{Dictionary@{Dictionary}!Dictionary@{Dictionary}}
+\doxysubsubsection{\texorpdfstring{Dictionary()}{Dictionary()}}
+{\footnotesize\ttfamily Dictionary\+::\+Dictionary (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor por defecto. 
+
+Crea un \doxylink{classDictionary}{Dictionary} vacío \Hypertarget{classDictionary_aa36f24073d9c9001768517aa2322cb82}\label{classDictionary_aa36f24073d9c9001768517aa2322cb82} 
+\index{Dictionary@{Dictionary}!````~Dictionary@{\texorpdfstring{$\sim$}{\string~}Dictionary}}
+\index{````~Dictionary@{\texorpdfstring{$\sim$}{\string~}Dictionary}!Dictionary@{Dictionary}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Dictionary()}{\string~Dictionary()}}
+{\footnotesize\ttfamily Dictionary\+::\texorpdfstring{$\sim$}{\string~}\+Dictionary (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classDictionary_a574468b2073aa0198a458715fe0e7791}\label{classDictionary_a574468b2073aa0198a458715fe0e7791} 
+\index{Dictionary@{Dictionary}!begin@{begin}}
+\index{begin@{begin}!Dictionary@{Dictionary}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDictionary_1_1iterator}{Dictionary\+::iterator}} Dictionary\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtiene el iterador apuntando a la primera palabra del diccionario. 
+
+\Hypertarget{classDictionary_accf6efc475acfb75090e6da9bf1559bc}\label{classDictionary_accf6efc475acfb75090e6da9bf1559bc} 
+\index{Dictionary@{Dictionary}!begin@{begin}}
+\index{begin@{begin}!Dictionary@{Dictionary}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDictionary_1_1const__iterator}{Dictionary\+::const\+\_\+iterator}} Dictionary\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classDictionary_a2d54b74d14335da04ad9d64e49536d9a}\label{classDictionary_a2d54b74d14335da04ad9d64e49536d9a} 
+\index{Dictionary@{Dictionary}!clear@{clear}}
+\index{clear@{clear}!Dictionary@{Dictionary}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void Dictionary\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Limpia el \doxylink{classDictionary}{Dictionary}. 
+
+\begin{DoxyPostcond}{Postcondition}
+el diccionario queda con 0 palabras 
+\end{DoxyPostcond}
+\Hypertarget{classDictionary_ab45dc9793957e562ccc104150fc7af8f}\label{classDictionary_ab45dc9793957e562ccc104150fc7af8f} 
+\index{Dictionary@{Dictionary}!empty@{empty}}
+\index{empty@{empty}!Dictionary@{Dictionary}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily bool Dictionary\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Comprueba si el diccionario está vacio. 
+
+\begin{DoxyReturn}{Returns}
+true si el diccionario está vacío, false en caso contrario 
+\end{DoxyReturn}
+\Hypertarget{classDictionary_a78307ae7b05370023477c53821424d3d}\label{classDictionary_a78307ae7b05370023477c53821424d3d} 
+\index{Dictionary@{Dictionary}!end@{end}}
+\index{end@{end}!Dictionary@{Dictionary}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDictionary_1_1iterator}{Dictionary\+::iterator}} Dictionary\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtiene el iterador apuntando al final del diccionario. 
+
+\Hypertarget{classDictionary_a45568845d4278a236d2dcf08e3ead002}\label{classDictionary_a45568845d4278a236d2dcf08e3ead002} 
+\index{Dictionary@{Dictionary}!end@{end}}
+\index{end@{end}!Dictionary@{Dictionary}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDictionary_1_1const__iterator}{Dictionary\+::const\+\_\+iterator}} Dictionary\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classDictionary_ade0c02d2c1f45e826a87f52c4f1d0ee6}\label{classDictionary_ade0c02d2c1f45e826a87f52c4f1d0ee6} 
+\index{Dictionary@{Dictionary}!erase@{erase}}
+\index{erase@{erase}!Dictionary@{Dictionary}}
+\doxysubsubsection{\texorpdfstring{erase()}{erase()}}
+{\footnotesize\ttfamily bool Dictionary\+::erase (\begin{DoxyParamCaption}\item[{const string \&}]{val }\end{DoxyParamCaption})}
+
+
+
+Elimina una palabra del diccionario. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & Palabra a borrar del diccionario\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Booleano que indica si la palabra se ha borrado del diccionario 
+\end{DoxyReturn}
+\Hypertarget{classDictionary_a00667b5bf947862dece75bb78171e89c}\label{classDictionary_a00667b5bf947862dece75bb78171e89c} 
+\index{Dictionary@{Dictionary}!exists@{exists}}
+\index{exists@{exists}!Dictionary@{Dictionary}}
+\doxysubsubsection{\texorpdfstring{exists()}{exists()}}
+{\footnotesize\ttfamily bool Dictionary\+::exists (\begin{DoxyParamCaption}\item[{const string \&}]{val }\end{DoxyParamCaption})}
+
+
+
+Indica si una palabra esta en el diccionario o no. Este método comprueba si una determinada palabra se encuentra o no en el dicccionario. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em palabra} & la palabra que se quiere buscar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Booleano indicando si la palabra existe o no en el diccionario 
+\end{DoxyReturn}
+\Hypertarget{classDictionary_a7dd069387999c1bfc4ecc5ee5c223752}\label{classDictionary_a7dd069387999c1bfc4ecc5ee5c223752} 
+\index{Dictionary@{Dictionary}!find@{find}}
+\index{find@{find}!Dictionary@{Dictionary}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDictionary_1_1iterator}{Dictionary\+::iterator}} Dictionary\+::find (\begin{DoxyParamCaption}\item[{const string \&}]{w }\end{DoxyParamCaption})}
+
+
+
+Indica si una palabra esta en el diccionario. 
+
+\begin{DoxyReturn}{Returns}
+iterador apuntando a la palabra si esta o end si no esta 
+\end{DoxyReturn}
+\Hypertarget{classDictionary_a98251e5b46c3d9be634d77f72c3faa66}\label{classDictionary_a98251e5b46c3d9be634d77f72c3faa66} 
+\index{Dictionary@{Dictionary}!getOccurrences@{getOccurrences}}
+\index{getOccurrences@{getOccurrences}!Dictionary@{Dictionary}}
+\doxysubsubsection{\texorpdfstring{getOccurrences()}{getOccurrences()}}
+{\footnotesize\ttfamily int Dictionary\+::get\+Occurrences (\begin{DoxyParamCaption}\item[{const char}]{c }\end{DoxyParamCaption}) const}
+
+
+
+Indica el numero de apariciones de una letra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & letra a buscar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un entero indicando el numero de apariciones. 
+\end{DoxyReturn}
+\Hypertarget{classDictionary_ac3b8bd67f0a45918cfe868e9e62f2322}\label{classDictionary_ac3b8bd67f0a45918cfe868e9e62f2322} 
+\index{Dictionary@{Dictionary}!getTotalLetters@{getTotalLetters}}
+\index{getTotalLetters@{getTotalLetters}!Dictionary@{Dictionary}}
+\doxysubsubsection{\texorpdfstring{getTotalLetters()}{getTotalLetters()}}
+{\footnotesize\ttfamily int Dictionary\+::get\+Total\+Letters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Indica el numero totales de letras. 
+
+\begin{DoxyReturn}{Returns}
+Un entero indicando el numero totales de letras 
+\end{DoxyReturn}
+\Hypertarget{classDictionary_abc5ded9cf1d5191e27d52745a81970b0}\label{classDictionary_abc5ded9cf1d5191e27d52745a81970b0} 
+\index{Dictionary@{Dictionary}!getWordsLength@{getWordsLength}}
+\index{getWordsLength@{getWordsLength}!Dictionary@{Dictionary}}
+\doxysubsubsection{\texorpdfstring{getWordsLength()}{getWordsLength()}}
+{\footnotesize\ttfamily vector$<$ string $>$ Dictionary\+::get\+Words\+Length (\begin{DoxyParamCaption}\item[{int}]{longitud }\end{DoxyParamCaption})}
+
+
+
+Obtiene todas las palabras de una longitud param longitud\+: valor de longitud de la palabras a devolver. 
+
+\begin{DoxyReturn}{Returns}
+un vector con palabra de la longitud dada 
+\end{DoxyReturn}
+\Hypertarget{classDictionary_a66ab5a069ddd3a6aa86e89217c28c674}\label{classDictionary_a66ab5a069ddd3a6aa86e89217c28c674} 
+\index{Dictionary@{Dictionary}!insert@{insert}}
+\index{insert@{insert}!Dictionary@{Dictionary}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily std\+::pair$<$ \mbox{\hyperlink{classDictionary_1_1iterator}{Dictionary\+::iterator}}, bool $>$ Dictionary\+::insert (\begin{DoxyParamCaption}\item[{const string \&}]{val }\end{DoxyParamCaption})}
+
+
+
+Inserta una palabra en el diccionario. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & palaba a insertar en el diccionario \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Booleano que indica si la inserción ha tenido éxito. Una palabra se inserta con éxito si no existía previamente en el diccionario. El iterador apunta a la palabra 
+\end{DoxyReturn}
+\Hypertarget{classDictionary_abd31218bff8265624ebdf3d6193020fc}\label{classDictionary_abd31218bff8265624ebdf3d6193020fc} 
+\index{Dictionary@{Dictionary}!range\_prefix@{range\_prefix}}
+\index{range\_prefix@{range\_prefix}!Dictionary@{Dictionary}}
+\doxysubsubsection{\texorpdfstring{range\_prefix()}{range\_prefix()}}
+{\footnotesize\ttfamily std\+::pair$<$ \mbox{\hyperlink{classDictionary_1_1iterator}{Dictionary\+::iterator}}, \mbox{\hyperlink{classDictionary_1_1iterator}{Dictionary\+::iterator}} $>$ Dictionary\+::range\+\_\+prefix (\begin{DoxyParamCaption}\item[{const string \&}]{val }\end{DoxyParamCaption})}
+
+
+
+Busca un las palabras con un prefijo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & prefijo a buscar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+un pair con dos iteradores el primero apuntando a la primera palaba con el prefijo y el segundo donde ya no contiene el prefijo. Si no existe el prefijo se devuelve los dos iteradores apuntando a \doxylink{classDictionary_a78307ae7b05370023477c53821424d3d}{end()} 
+\end{DoxyReturn}
+\Hypertarget{classDictionary_ac2456f6eb0cb7f997acc69eac47e2244}\label{classDictionary_ac2456f6eb0cb7f997acc69eac47e2244} 
+\index{Dictionary@{Dictionary}!size@{size}}
+\index{size@{size}!Dictionary@{Dictionary}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily unsigned int Dictionary\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Tamaño del diccionario. 
+
+\begin{DoxyReturn}{Returns}
+Número de palabras guardadas en el diccionario 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classDictionary_a558ee41aec5fad2f9ba2071c39cef580}\label{classDictionary_a558ee41aec5fad2f9ba2071c39cef580} 
+\index{Dictionary@{Dictionary}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Dictionary@{Dictionary}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classDictionary}{Dictionary}} \&}]{dic }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Sobrecarga del operador de salida. 
+
+Permite imprimir el diccionario completo a un flujo de salida
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Flujo de salida, donde imprimir el diccionario \\
+\hline
+{\em dic} & Diccionario a imprimir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Flujo de salida, para poder encadenar el operador 
+\end{DoxyReturn}
+\Hypertarget{classDictionary_a045316b2a6550b776d5b2cb21824827b}\label{classDictionary_a045316b2a6550b776d5b2cb21824827b} 
+\index{Dictionary@{Dictionary}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Dictionary@{Dictionary}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{istream \&}]{is,  }\item[{\mbox{\hyperlink{classDictionary}{Dictionary}} \&}]{dic }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Sobrecarga del operador de entrada. 
+
+Permite leer las palabras de un fichero de texto e introducirlas en el diccionario 
+\begin{DoxyParams}{Parameters}
+{\em is} & Flujo de entrada \\
+\hline
+{\em dic} & Diccionario a rellenar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Flujo de entrada para poder encadenar el operador
+\end{DoxyReturn}
+Permite leer las palabras de un fichero de texto e introducirlas en el diccionario 
+\begin{DoxyParams}{Parameters}
+{\em isz} & Flujo de entrada \\
+\hline
+{\em dic} & Diccionario a rellenar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Flujo de entrada para poder encadenar el operador 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classDictionary_a13a851d97d7f42b4d3002719bd7edace}\label{classDictionary_a13a851d97d7f42b4d3002719bd7edace} 
+\index{Dictionary@{Dictionary}!words@{words}}
+\index{words@{words}!Dictionary@{Dictionary}}
+\doxysubsubsection{\texorpdfstring{words}{words}}
+{\footnotesize\ttfamily set$<$string$>$ Dictionary\+::words\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{dictionary_8h}{dictionary.\+h}}\item 
+src/\mbox{\hyperlink{dictionary_8cpp}{dictionary.\+cpp}}\end{DoxyCompactItemize}

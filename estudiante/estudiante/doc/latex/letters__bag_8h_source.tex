@@ -1,0 +1,64 @@
+\doxysection{letters\+\_\+bag.\+h}
+\hypertarget{letters__bag_8h_source}{}\label{letters__bag_8h_source}\index{include/letters\_bag.h@{include/letters\_bag.h}}
+\mbox{\hyperlink{letters__bag_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_LETTERS\_BAG\_H\_\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_\_LETTERS\_BAG\_H\_\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{letters__set_8h}{letters\_set.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <algorithm>}\ \textcolor{comment}{//\ para\ el\ find}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLettersBag}{LettersBag}}\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ vector<char>\ \mbox{\hyperlink{classLettersBag_ac28b096028a27b763ba3d185d9969576}{bag}};\ \ \ \ \ \ \ \textcolor{comment}{//\ vector\ de\ letras}}
+\DoxyCodeLine{00022\ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLettersBag}{LettersBag}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLetterSet}{LetterSet}}\ \&);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ pasamos\ el\ numero\ de\ letras,\ y\ el\ conjunto\ dnde\ estan\ las\ letras}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLettersBag}{LettersBag}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ pasamos\ el\ numero\ de\ letras,\ y\ el\ conjunto\ dnde\ estan\ las\ letras}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classLettersBag_ac4706e9eb0470e0385d8eaae88597495}{getLetter}}(\textcolor{keywordtype}{int})\ \textcolor{keyword}{const};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ conseguimos\ la\ letra}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ void\ setLetter(const\ char);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ añadimos\ la\ letra\ a\ la\ bolsa\ \ \ (no\ le\ veo\ mucho\ sentido\ que\ podamos\ añadir\ letras)}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classLettersBag_a123697ed2b430680c1ce78637f459f64}{toString}}()\ \textcolor{keyword}{const};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ mostramos\ por\ pantalla\ todas\ las\ letras\ de\ la\ bolsa}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{classLettersBag_a4feff73f6f1125487a97248cc785fd61}{size}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLettersBag_af30c1edf67b2ab86b85d98532d079f2c}{empty}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLettersBag_a40ec6d59bb0722954c7f9e5609d93895}{clear}}();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLettersBag_a4a788034c66efc222051012825f8c0cf}{erase}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char});}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLettersBag_1_1iterator}{iterator}}\{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vector<char>::iterator\ \mbox{\hyperlink{classLettersBag_1_1iterator_aadced6c561997195f791fe356e9dbb93}{it}};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLettersBag_1_1iterator_a6ba2b535b6e55e981987888118eaa44b}{iterator}}();}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLettersBag_1_1iterator_a6ba2b535b6e55e981987888118eaa44b}{iterator}}(vector<char>::iterator);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \&\ \mbox{\hyperlink{classLettersBag_1_1iterator_acdc6a1a5449c7c41c157b79513b3907d}{operator*}}();\ \textcolor{comment}{//\ Devuelve\ una\ referencia\ al\ valor}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLettersBag_1_1iterator}{iterator}}\ \&\ \mbox{\hyperlink{classLettersBag_1_1iterator_abc4dfc527111d3e367cce56f2cc10ad2}{operator++}}();}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLettersBag_1_1iterator_abea32babb123509f0a11f9a095889464}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLettersBag_1_1iterator}{iterator}}\ \&)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLettersBag_1_1iterator_a273d32970f8d987786dfd69d227686cd}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLettersBag_1_1iterator}{iterator}}\ \&)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classLettersBag_1_1iterator_aafb1918e3d9a61bfcab8f8884d601402}{LettersBag}};}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00095\ \ \ \ \ }
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{classLettersBag_1_1iterator}{iterator}}\ \mbox{\hyperlink{classLettersBag_a16534d884c5577213071cf0a0fc05ae2}{begin}}();}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{classLettersBag_1_1iterator}{iterator}}\ \mbox{\hyperlink{classLettersBag_a10dcc2b87a8a43e92792ab47de0b1743}{end}}();}
+\DoxyCodeLine{00105\ \};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

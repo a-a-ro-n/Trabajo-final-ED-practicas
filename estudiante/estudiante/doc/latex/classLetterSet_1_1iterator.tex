@@ -1,0 +1,117 @@
+\doxysection{Letter\+Set\+::iterator Class Reference}
+\hypertarget{classLetterSet_1_1iterator}{}\label{classLetterSet_1_1iterator}\index{LetterSet::iterator@{LetterSet::iterator}}
+
+
+Iterador para recorrer el conjunto de letras.  
+
+
+
+
+{\ttfamily \#include $<$letters\+\_\+set.\+h$>$}
+
+
+
+Collaboration diagram for Letter\+Set\+::iterator\+:
+% FIG 0
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLetterSet_1_1iterator_a422c62d8d50c410313be45e10e8cf9bf}{iterator}} ()
+\item 
+\mbox{\hyperlink{classLetterSet_1_1iterator_a1da2ac08c7b34ee3b47714a3272d42db}{iterator}} (map$<$ char, \mbox{\hyperlink{structLetterInfo}{Letter\+Info}} $>$\+::iterator)
+\item 
+pair$<$ const char, \mbox{\hyperlink{structLetterInfo}{Letter\+Info}} $>$ \& \mbox{\hyperlink{classLetterSet_1_1iterator_ad5943e61272ff39ce5887da9995e55a4}{operator\texorpdfstring{$\ast$}{*}}} ()
+\item 
+pair$<$ const char, \mbox{\hyperlink{structLetterInfo}{Letter\+Info}} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classLetterSet_1_1iterator_a820d96f04323dffeb926e44c6c7c7e38}{operator-\/$>$}} ()
+\item 
+\mbox{\hyperlink{classLetterSet_1_1iterator}{iterator}} \& \mbox{\hyperlink{classLetterSet_1_1iterator_a9c00a2edf5f6a7a703225762800262a2}{operator++}} ()
+\item 
+bool \mbox{\hyperlink{classLetterSet_1_1iterator_a0a19ee4b14c800420002e54f6d3517e2}{operator!=}} (const \mbox{\hyperlink{classLetterSet_1_1iterator}{iterator}} \&) const
+\item 
+bool \mbox{\hyperlink{classLetterSet_1_1iterator_a4e3c70bacc729783427345fbe2eba212}{operator==}} (const \mbox{\hyperlink{classLetterSet_1_1iterator}{iterator}} \&) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+map$<$ char, \mbox{\hyperlink{structLetterInfo}{Letter\+Info}} $>$\mbox{\hyperlink{classLetterSet_1_1iterator_a422c62d8d50c410313be45e10e8cf9bf}{\+::iterator}} \mbox{\hyperlink{classLetterSet_1_1iterator_a7b6d6e031ae015969bc552bb0dcd89b9}{it}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classLetterSet_1_1iterator_afa6a6266305cbf9010f0fddf2e73cf6b}{Letter\+Set}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Iterador para recorrer el conjunto de letras. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classLetterSet_1_1iterator_a422c62d8d50c410313be45e10e8cf9bf}\label{classLetterSet_1_1iterator_a422c62d8d50c410313be45e10e8cf9bf} 
+\index{LetterSet::iterator@{LetterSet::iterator}!iterator@{iterator}}
+\index{iterator@{iterator}!LetterSet::iterator@{LetterSet::iterator}}
+\doxysubsubsection{\texorpdfstring{iterator()}{iterator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Letter\+Set\+::iterator\+::iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classLetterSet_1_1iterator_a1da2ac08c7b34ee3b47714a3272d42db}\label{classLetterSet_1_1iterator_a1da2ac08c7b34ee3b47714a3272d42db} 
+\index{LetterSet::iterator@{LetterSet::iterator}!iterator@{iterator}}
+\index{iterator@{iterator}!LetterSet::iterator@{LetterSet::iterator}}
+\doxysubsubsection{\texorpdfstring{iterator()}{iterator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Letter\+Set\+::iterator\+::iterator (\begin{DoxyParamCaption}\item[{map$<$ char, \mbox{\hyperlink{structLetterInfo}{Letter\+Info}} $>$\+::iterator}]{iter }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLetterSet_1_1iterator_a0a19ee4b14c800420002e54f6d3517e2}\label{classLetterSet_1_1iterator_a0a19ee4b14c800420002e54f6d3517e2} 
+\index{LetterSet::iterator@{LetterSet::iterator}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!LetterSet::iterator@{LetterSet::iterator}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Letter\+Set\+::iterator\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLetterSet_1_1iterator}{iterator}} \&}]{other }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classLetterSet_1_1iterator_ad5943e61272ff39ce5887da9995e55a4}\label{classLetterSet_1_1iterator_ad5943e61272ff39ce5887da9995e55a4} 
+\index{LetterSet::iterator@{LetterSet::iterator}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!LetterSet::iterator@{LetterSet::iterator}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}}
+{\footnotesize\ttfamily pair$<$ const char, \mbox{\hyperlink{structLetterInfo}{Letter\+Info}} $>$ \& Letter\+Set\+::iterator\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classLetterSet_1_1iterator_a9c00a2edf5f6a7a703225762800262a2}\label{classLetterSet_1_1iterator_a9c00a2edf5f6a7a703225762800262a2} 
+\index{LetterSet::iterator@{LetterSet::iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!LetterSet::iterator@{LetterSet::iterator}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLetterSet_1_1iterator}{Letter\+Set\+::iterator}} \& Letter\+Set\+::iterator\+::operator++ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classLetterSet_1_1iterator_a820d96f04323dffeb926e44c6c7c7e38}\label{classLetterSet_1_1iterator_a820d96f04323dffeb926e44c6c7c7e38} 
+\index{LetterSet::iterator@{LetterSet::iterator}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!LetterSet::iterator@{LetterSet::iterator}}
+\doxysubsubsection{\texorpdfstring{operator-\/$>$()}{operator->()}}
+{\footnotesize\ttfamily pair$<$ const char, \mbox{\hyperlink{structLetterInfo}{Letter\+Info}} $>$ \texorpdfstring{$\ast$}{*} Letter\+Set\+::iterator\+::operator-\/$>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classLetterSet_1_1iterator_a4e3c70bacc729783427345fbe2eba212}\label{classLetterSet_1_1iterator_a4e3c70bacc729783427345fbe2eba212} 
+\index{LetterSet::iterator@{LetterSet::iterator}!operator==@{operator==}}
+\index{operator==@{operator==}!LetterSet::iterator@{LetterSet::iterator}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Letter\+Set\+::iterator\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLetterSet_1_1iterator}{iterator}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classLetterSet_1_1iterator_afa6a6266305cbf9010f0fddf2e73cf6b}\label{classLetterSet_1_1iterator_afa6a6266305cbf9010f0fddf2e73cf6b} 
+\index{LetterSet::iterator@{LetterSet::iterator}!LetterSet@{LetterSet}}
+\index{LetterSet@{LetterSet}!LetterSet::iterator@{LetterSet::iterator}}
+\doxysubsubsection{\texorpdfstring{LetterSet}{LetterSet}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classLetterSet}{Letter\+Set}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classLetterSet_1_1iterator_a7b6d6e031ae015969bc552bb0dcd89b9}\label{classLetterSet_1_1iterator_a7b6d6e031ae015969bc552bb0dcd89b9} 
+\index{LetterSet::iterator@{LetterSet::iterator}!it@{it}}
+\index{it@{it}!LetterSet::iterator@{LetterSet::iterator}}
+\doxysubsubsection{\texorpdfstring{it}{it}}
+{\footnotesize\ttfamily map$<$char,\mbox{\hyperlink{structLetterInfo}{Letter\+Info}}$>$\mbox{\hyperlink{classLetterSet_1_1iterator_a422c62d8d50c410313be45e10e8cf9bf}{\+::iterator}} Letter\+Set\+::iterator\+::it\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{letters__set_8h}{letters\+\_\+set.\+h}}\item 
+src/\mbox{\hyperlink{letters__set_8cpp}{letters\+\_\+set.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,158 @@
+\doxysection{Letter\+Set Class Reference}
+\hypertarget{classLetterSet}{}\label{classLetterSet}\index{LetterSet@{LetterSet}}
+
+
+TDA \doxylink{classLetterSet}{Letter\+Set}.  
+
+
+
+
+{\ttfamily \#include $<$letters\+\_\+set.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classLetterSet_1_1const__iterator}{const\+\_\+iterator}}
+\begin{DoxyCompactList}\small\item\em Iterador constante para recorrer el conjunto de letras. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classLetterSet_1_1iterator}{iterator}}
+\begin{DoxyCompactList}\small\item\em Iterador para recorrer el conjunto de letras. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLetterSet_a0bbb4af75787825340c39aac28755f92}{Letter\+Set}} (const string \&)
+\item 
+const \mbox{\hyperlink{structLetterInfo}{Letter\+Info}} \mbox{\hyperlink{classLetterSet_a90d81fd54104ece813ea735077d633f5}{get\+Letter\+Info}} (char) const
+\begin{DoxyCompactList}\small\item\em Getter de la información de la letra. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLetterSet_ac071c00865836a5035cddeeea8024c5b}{empty}} () const
+\begin{DoxyCompactList}\small\item\em Comprueba si el conjunto está vacío. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classLetterSet_abd7f240d1a5b8ed5d1f939b806ef4d5f}{size}} () const
+\begin{DoxyCompactList}\small\item\em Obtiene el tamaño del conjunto (número de tipos de letras distintas) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLetterSet_1_1iterator}{iterator}} \mbox{\hyperlink{classLetterSet_a6c08e47839fbc5bda711481db7eebfea}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Devuelve un iterador al inicio del conjunto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLetterSet_1_1iterator}{iterator}} \mbox{\hyperlink{classLetterSet_aae7c01086ecc92240623cc84f876a647}{end}} ()
+\begin{DoxyCompactList}\small\item\em Devuelve un iterador al final del conjunto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLetterSet_1_1const__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classLetterSet_a6fd1e2b57496827d152be3c4083de52d}{begin}} () const
+\begin{DoxyCompactList}\small\item\em Devuelve un iterador constante al inicio del conjunto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLetterSet_1_1const__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classLetterSet_af1859ed05b9e017d48fb099e7cea0205}{end}} () const
+\begin{DoxyCompactList}\small\item\em Devuelve un iterador constante al final del conjunto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+map$<$ char, \mbox{\hyperlink{structLetterInfo}{Letter\+Info}} $>$ \mbox{\hyperlink{classLetterSet_ac5f3cb7f766303d4e6aa1c8a440b5b94}{char\+Set}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+TDA \doxylink{classLetterSet}{Letter\+Set}. 
+
+Esta clase gestiona un conjunto de letras, asociando a cada carácter su información de juego (repeticiones permitidas y puntuación). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classLetterSet_a0bbb4af75787825340c39aac28755f92}\label{classLetterSet_a0bbb4af75787825340c39aac28755f92} 
+\index{LetterSet@{LetterSet}!LetterSet@{LetterSet}}
+\index{LetterSet@{LetterSet}!LetterSet@{LetterSet}}
+\doxysubsubsection{\texorpdfstring{LetterSet()}{LetterSet()}}
+{\footnotesize\ttfamily Letter\+Set\+::\+Letter\+Set (\begin{DoxyParamCaption}\item[{const string \&}]{nombre }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLetterSet_a6c08e47839fbc5bda711481db7eebfea}\label{classLetterSet_a6c08e47839fbc5bda711481db7eebfea} 
+\index{LetterSet@{LetterSet}!begin@{begin}}
+\index{begin@{begin}!LetterSet@{LetterSet}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLetterSet_1_1iterator}{Letter\+Set\+::iterator}} Letter\+Set\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Devuelve un iterador al inicio del conjunto. 
+
+\Hypertarget{classLetterSet_a6fd1e2b57496827d152be3c4083de52d}\label{classLetterSet_a6fd1e2b57496827d152be3c4083de52d} 
+\index{LetterSet@{LetterSet}!begin@{begin}}
+\index{begin@{begin}!LetterSet@{LetterSet}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLetterSet_1_1const__iterator}{Letter\+Set\+::const\+\_\+iterator}} Letter\+Set\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Devuelve un iterador constante al inicio del conjunto. 
+
+\Hypertarget{classLetterSet_ac071c00865836a5035cddeeea8024c5b}\label{classLetterSet_ac071c00865836a5035cddeeea8024c5b} 
+\index{LetterSet@{LetterSet}!empty@{empty}}
+\index{empty@{empty}!LetterSet@{LetterSet}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily bool Letter\+Set\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Comprueba si el conjunto está vacío. 
+
+\begin{DoxyReturn}{Returns}
+true si no hay letras, false en caso contrario 
+\end{DoxyReturn}
+\Hypertarget{classLetterSet_aae7c01086ecc92240623cc84f876a647}\label{classLetterSet_aae7c01086ecc92240623cc84f876a647} 
+\index{LetterSet@{LetterSet}!end@{end}}
+\index{end@{end}!LetterSet@{LetterSet}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLetterSet_1_1iterator}{Letter\+Set\+::iterator}} Letter\+Set\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Devuelve un iterador al final del conjunto. 
+
+\Hypertarget{classLetterSet_af1859ed05b9e017d48fb099e7cea0205}\label{classLetterSet_af1859ed05b9e017d48fb099e7cea0205} 
+\index{LetterSet@{LetterSet}!end@{end}}
+\index{end@{end}!LetterSet@{LetterSet}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLetterSet_1_1const__iterator}{Letter\+Set\+::const\+\_\+iterator}} Letter\+Set\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Devuelve un iterador constante al final del conjunto. 
+
+\Hypertarget{classLetterSet_a90d81fd54104ece813ea735077d633f5}\label{classLetterSet_a90d81fd54104ece813ea735077d633f5} 
+\index{LetterSet@{LetterSet}!getLetterInfo@{getLetterInfo}}
+\index{getLetterInfo@{getLetterInfo}!LetterSet@{LetterSet}}
+\doxysubsubsection{\texorpdfstring{getLetterInfo()}{getLetterInfo()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structLetterInfo}{Letter\+Info}} Letter\+Set\+::get\+Letter\+Info (\begin{DoxyParamCaption}\item[{char}]{letter }\end{DoxyParamCaption}) const}
+
+
+
+Getter de la información de la letra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & Carácter del cual se quiere obtener la información \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devuelve la informacion (\doxylink{structLetterInfo}{Letter\+Info}) de la letra en el conjunto 
+\end{DoxyReturn}
+\Hypertarget{classLetterSet_abd7f240d1a5b8ed5d1f939b806ef4d5f}\label{classLetterSet_abd7f240d1a5b8ed5d1f939b806ef4d5f} 
+\index{LetterSet@{LetterSet}!size@{size}}
+\index{size@{size}!LetterSet@{LetterSet}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily unsigned Letter\+Set\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtiene el tamaño del conjunto (número de tipos de letras distintas) 
+
+\begin{DoxyReturn}{Returns}
+Entero con el tamaño 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classLetterSet_ac5f3cb7f766303d4e6aa1c8a440b5b94}\label{classLetterSet_ac5f3cb7f766303d4e6aa1c8a440b5b94} 
+\index{LetterSet@{LetterSet}!charSet@{charSet}}
+\index{charSet@{charSet}!LetterSet@{LetterSet}}
+\doxysubsubsection{\texorpdfstring{charSet}{charSet}}
+{\footnotesize\ttfamily map$<$char, \mbox{\hyperlink{structLetterInfo}{Letter\+Info}}$>$ Letter\+Set\+::char\+Set\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{letters__set_8h}{letters\+\_\+set.\+h}}\item 
+src/\mbox{\hyperlink{letters__set_8cpp}{letters\+\_\+set.\+cpp}}\end{DoxyCompactItemize}
