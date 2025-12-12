@@ -1,5 +1,0 @@
-var searchData=
-[
-  ['insert_0',['insert',['../classDictionary.html#a66ab5a069ddd3a6aa86e89217c28c674',1,'Dictionary']]],
-  ['iterator_1',['iterator',['../classDictionary_1_1iterator.html#a916e7d7bf8d9b5377e16c34726251cbf',1,'Dictionary::iterator::iterator()'],['../classDictionary_1_1iterator.html#a19093d8fd7f217e014565ebafbca60f7',1,'Dictionary::iterator::iterator(set&lt; string &gt;::const_iterator)'],['../classLettersBag_1_1iterator.html#a6ba2b535b6e55e981987888118eaa44b',1,'LettersBag::iterator::iterator()'],['../classLettersBag_1_1iterator.html#a2aa547a1b6ed51e494b1fe737adf9f63',1,'LettersBag::iterator::iterator(vector&lt; char &gt;::iterator)'],['../classLetterSet_1_1iterator.html#a422c62d8d50c410313be45e10e8cf9bf',1,'LetterSet::iterator::iterator()'],['../classLetterSet_1_1iterator.html#a1da2ac08c7b34ee3b47714a3272d42db',1,'LetterSet::iterator::iterator(map&lt; char, LetterInfo &gt;::iterator)']]]
-];
