@@ -20,7 +20,7 @@ ARCHIVOS PRINCIPALES:
    - Usa una estructura eficiente (basada en set<string>) para almacenar las palabras válidas del diccionario 
      que se le pasa.
    - Permite búsqueda, inserción, borrado y comprobación de prefijos mediante la llamada a funciones.
-     	Más Rápido (Mejor Caso)			O(1)			size, empty...
+    Más Rápido (Mejor Caso)			O(1)			size, empty...
 	Más Lento (Peor Caso)			O(n⋅Longitud)		getOccurrences, getTotalLetters...
 	Demás (Caso Promedio)			O(Longitud⋅log(n))	exists, find..
 
@@ -33,8 +33,8 @@ ARCHIVOS PRINCIPALES:
 3. LettersBag (letters_bag.h / letters_bag.cpp):
    - Representa una bolsa de letras mezcladas, permitendo extraer letras de forma aleatoria para formar el 
      conjunto de letras con el que jugara el usuario.
-	Más Rápido (Mejor Caso)	O(1)	getLetter(), size(), empty(), clear(), begin(), end()
-	Más Lento (Peor Caso)	O(N)	erase(const char), toString()
+	Más Rápido (Mejor Caso)	O(1)	getLetter, size...
+	Más Lento (Peor Caso)	O(N)	erase, toString
 
 4. Solver (solver.h / solver.cpp):
    - Motor de resolución del juego, encontrando todas las palabras válidas que se pueden formar dado un 
@@ -42,39 +42,40 @@ ARCHIVOS PRINCIPALES:
    - Soporta dos modos de juego:
      - Por longitud: Gana la palabra más larga.
      - Por puntuación: Gana la palabra que suma más puntos según el LetterSet.
-     	Más Rápido (Mejor Caso)	O(1)	 		Solver()
-	Más Lento (Peor Caso)	O(n⋅Longitud⋅vector)	getSolutions()
-	Demás (Caso Promedio)	O(Longitud⋅vector)	poderConstruir()
+    Más Rápido (Mejor Caso)	O(1)	 				Solver
+	Más Lento (Peor Caso)	O(n⋅Longitud⋅vector)	getSolutions
+	Demás (Caso Promedio)	O(Longitud⋅vector)		poderConstruir
 
 5.Cantidad letras:
-   -Recibe un diccionario, un fichero de letras y un fichero de salida por el que muestra, por cada letra
-del fichero letras, sus ocurrencias y su puntuación.
-   -Utilizamos un struct letra para guardar la información que necesitaremos de cada letra (caracter, apariciones, porcentaje).
-   -Por cada letra, calculamos los campos anteriores y los guardamos en un vector (como sabemos de antemano el
-tamaño, no hay que hacer inserciones, lo que haría menos eficiente esta implementación). Calculamos el porcentaje
-mínimo y hacemos -log10(min) para no utilizar tantos decimales. Finalmente, guardamos en el fichero de salida la
-información que se nos pedía.
+   - Recibe un diccionario, un fichero de letras y un fichero de salida por el que muestra, por cada letra
+	 del fichero letras, sus ocurrencias y su puntuación, utilizamos un struct letra para guardar la 
+	 información que necesitaremos de cada letra (caracter, apariciones, porcentaje).
+   - Por cada letra, calculamos los campos anteriores y los guardamos en un vector (como sabemos de antemano 
+	 el tamaño, no hay que hacer inserciones, lo que haría menos eficiente esta implementación). Calculamos 
+	 el porcentaje mínimo y hacemos -log10(min) para no utilizar tantos decimales. Finalmente, guardamos en 
+	 el fichero de salida la información de las letras.
 
-6. Cifras
-   -Utiliza los siguientes elementos:
-	-struct solucion. Guarda los campos relativos a la solución (valor,op,cantidad). Hemos optado por guardar
-las operaciones en un único string ya que tan solo las imprimiremos y no hay borrados (no hace falta un TDA que las
-almacene por separado). La única desventaja sería contabilizar el número de operaciones, pero para ello utilizamos
-cantidad, que se actualizará al añadir operaciones. 
-	-función GeneraOperaciones: añade todas las posibles operaciones con un número n a una solucion dada (evitamos
-que al restar haya números negativos).
-	-función Cifras:devuelve la mejor solución dados un conjunto de números, un objetivo, una solución actual y la
-mejor. Cuando encuentra una solución mejor a la actual, actualiza best y lo devuelve. Recorre el conjunto S y, por cada
-número, llama a GeneraOperaciones para saber las operaciones que se pueden hacer. Por cada una de las operaciones, se
-llama a sí misma recursivamente. De este modo, acabará devolviendo la mejor solución. Esta implementación no termina al
-encontrar el exacto, lo que supondría menor carga computacional, porque buscamos el exacto con el menor número de operaciones
-(o, si no se puede alcanzar, el más cercano con el menor número de operaciones).
-	-main: utilizamos un vector para guardar los posibles números que pueden "tocar" para alcanzar el objetivo y un
-multiset para los que "tocan". Elegimos este segundo porque sí necesitaremos hacer inserciones y borrados, por lo que será
-más eficiente que un vector. Le pedimos al usuario que nos diga cómo llegaría al resultado. Cuando introduzca algún valor
-erróneo, se dejará de preguntar y se tomará la respuesta hasta donde era correcta. La comprobación se hace después de ambas
-lecturas, por lo que si se falla en el signo, esperará un valor más (aunque no vaya a contar). Finalmente, muestra la respuesta
-del usuario y la que calcula Cifras.
+6. Cifras:
+   - Utiliza los siguientes elementos:
+   - Struct solucion. Guarda los campos relativos a la solución (valor,op,cantidad). Hemos optado por guardar
+	 las operaciones en un único string ya que tan solo las imprimiremos y no hay borrados (no hace falta un 
+	 TDA que las almacene por separado). La única desventaja sería contabilizar el número de operaciones, pero
+	 para ello utilizamos cantidad, que se actualizará al añadir operaciones. 
+   - GeneraOperaciones: añade todas las posibles operaciones con un número n a una solucion dada (evitamos que 
+	 al restar haya números negativos).
+   - Cifras: devuelve la mejor solución dados un conjunto de números, un objetivo, una solución actual y la mejor.
+	 Cuando encuentra una solución mejor a la actual, actualiza best y lo devuelve. Recorre el conjunto S y, por 
+	 cada número, llama a GeneraOperaciones para saber las operaciones que se pueden hacer. Por cada una de las 
+	 operaciones, se llama a sí misma recursivamente. De este modo, acabará devolviendo la mejor solución. Esta 
+	 implementación no termina al encontrar el exacto, lo que supondría menor carga computacional, porque buscamos
+	 el exacto con el menor número de operaciones (o, si no se puede alcanzar, el más cercano con el menor número 
+	 de operaciones).
+   - main: utilizamos un vector para guardar los posibles números que pueden "tocar" para alcanzar el objetivo y un
+	 multiset para los que "tocan". Elegimos este segundo porque sí necesitaremos hacer inserciones y borrados, por 
+	 lo que será más eficiente que un vector. Le pedimos al usuario que nos diga cómo llegaría al resultado. Cuando 
+	 introduzca algún valor erróneo, se dejará de preguntar y se tomará la respuesta hasta donde era correcta. La 
+	 comprobación se hace después de ambas lecturas, por lo que si se falla en el signo, esperará un valor más 
+	 (aunque no vaya a contar). Finalmente, muestra la respuesta del usuario y la que calcula Cifras.
 
 
 COMPILACIÓN
